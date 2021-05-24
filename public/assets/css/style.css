@@ -1,0 +1,1473 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+
+}
+a {
+    text-decoration: none;
+}
+/*Header style*/
+.header-language-background{
+    background: #efeff1;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    display: none;
+}
+.col2-left-layout .col-main{
+    float: right;
+    width: 85%;
+}
+.col2-left-layout .col-left.sidebar{
+    float: left;
+    width: 15%;
+    min-height: 200px;
+}
+.page{
+    width: 90%;
+    margin: auto;
+    box-shadow: 0 10px 10px gray;
+}
+.container, .main-container{
+    width: 100%;
+    margin: auto;
+}
+.main{
+    min-height: 600px;
+
+}
+noscript{
+    display: none;
+}
+#header-account {
+    float: right;
+}
+#header-account .links ul{
+    margin: 0px;
+    padding: 0px;
+}
+#header-account .links li {
+    color: white;
+    display: inline-block;
+    line-height: 40px;
+}
+#header-account .links li:last-child {
+    padding-right: 0px;
+    border-right: 0px;
+}
+.welcome-msg {
+    float: left;
+}
+#header-account .links li a{
+    color: #394a9a;
+    text-decoration: none;
+    padding: 0 15px;
+    border-right: 1px solid #394a9a;
+    font-weight: bold;
+}
+#header-account .links li:last-child a{
+    border-right: none;
+    padding-right: 0px;
+}
+
+#header-cart{
+    display: none;
+}
+.page-header-container .skip-links{
+    float: right;
+}
+.header-minicart {
+    padding: 25px;
+}
+.header-minicart .icon{
+    /*background: image;*/
+}
+.search-categories {
+    background:#000000;
+    height: 50px;
+    clear: both;
+    border-top: 1px solid #ffffff;
+}
+.top-categories {
+    color: white;
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 50px;
+    text-transform: uppercase;
+    width: 22%;
+}
+.header-top-categories {
+    background-image: url("../img/arrow_bottom.png");
+    background-position: right 15px;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    cursor: pointer;
+    height: 50px;
+}
+
+
+.skip-content {
+    line-height: 40px;
+    width: 55%;
+    float:left;
+}
+#phieusach{
+    width: 23%;
+    float: right;
+}
+
+#phieusach a {
+    background-color: #848688;
+    background-image: url("../img/bookcart.png");
+    background-position: 10px 2px;
+    background-repeat: no-repeat;
+    background-size: 35px auto;
+    border-radius: 5px;
+    border: 1px solid #FEFEFE;
+    color: white;
+    font-size: 1.3em;
+    font-weight: bold;
+    line-height: 50px;
+    padding: 10px 20px 10px 53px;
+}
+
+#phieusach a:hover{
+    background-color: #D2D3D5;
+    color: #0000ff;
+}
+#search_mini_form select{
+    height: 40px;
+    min-width: 150px;
+    border: 1px solid #cccccc;
+    padding-left: 10px;
+}
+#search_mini_form select option{
+    height: 30px;
+    line-height: 30px;
+}
+#search {
+    height: 40px;
+    margin-left: -5px;
+    width: calc(100% - 168px);
+    border: 1px solid #cccccc;
+    padding-left: 20px;
+}
+.search-button {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: #D2D3D5;
+    border: 1px solid #cccccc;
+    border-right: none;
+    font-size: 14px;
+    height: 40px;
+    margin-left: -104px;
+    padding:0 20px;
+    width: 100px;
+    border-radius: 0px 5px 5px 0;
+    cursor: pointer;
+    margin-top: 5px;
+    position: relative;
+    top:1px;
+}
+.search-button:hover{
+    background-color: #848688;
+    color: #fa0819;
+
+}
+.footer-container{
+    background: url('../img/footer1.jpg') no-repeat;
+
+    background-size: cover;
+    padding: 15px 0 0;
+    clear: both;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.top-slider{
+    float: left;
+    overflow: hidden;
+
+}
+ul, p{
+    margin: 0px;
+}
+.top-slider-news {
+    margin-top: 0px;
+    width:76%;
+    float:right;
+
+}
+.top-news{
+    float: right;
+    height: 300px;
+    width:calc(100% - 915px);
+
+}
+.home-books-block {
+    clear: both;
+    margin: 5px 0 5px;
+}
+.home-books-block{
+    margin: 5px auto 0;
+    padding: 0 1px;
+}
+.home-books-block li{
+    width: 19%;
+    text-align: left;
+}
+.home-books-block li img{
+    width: 159px;
+    height: 224px;
+    margin: auto auto 10px;
+}
+.home-books-block .title {
+    border-bottom: 4px solid #848688;
+    float: left;
+    width: 100%;
+}
+.home-books-block  .title .a-left{
+    background: rgba(0, 0, 0, 0) url("../img/title_bg.png") no-repeat scroll 0 0;
+    color: #000000;
+    display: block;
+    float: left;
+    font-size: 19px;
+    height: 38px;
+    margin-bottom: -10px;
+    text-decoration: none;
+    text-transform: capitalize;
+    width: 220px;
+    padding: 10px 35px 0px;
+    color: #ffffff;
+}
+.home-books-block  .title .a-right{
+    float: right;
+    text-decoration: none;
+    font-size: 19px;
+    color: #195aa9;
+    line-height: 30px;
+    margin-right: 15px;
+    padding-top: 10px;
+}
+.home-books-content {
+    float: left;
+    margin: 15px 10px;
+    width: 98%;
+}
+.next-newbook, .next-goodbook{
+    width: 2%;
+    height: 224px;
+    float: right;
+    border: none;
+    background: url('../img/icon_next_slide_filter.png') no-repeat;
+    background-position: center left;
+    cursor: pointer;
+    position: relative;
+    right: 0px;
+    z-index: 1000;
+}
+.next-newbook:hover, .next-goodbook:hover{
+    background: url('../img/icon_next_slide_filter_hover.png') no-repeat;
+    background-position: center left;
+}
+.newbook, .goodbook{
+    float: left;
+    left:20px!important;
+}
+.prev-newbook, .prev-goodbook{
+    width: 2%;
+    height: 224px;
+    float: left;
+    border: none;
+    background: url('../img/icon_prev_slide_filter.png') no-repeat;
+    background-position: center left;
+    cursor: pointer;
+    position: relative;
+    left: 0px;
+}
+.prev-newbook:active, .prev-goodbook:active, .next-goodbook:active, .next-goodbook:active{
+    border: none;
+}
+.prev-newbook:hover, .prev-goodbook:hover{
+    background: url('../img/icon_prev_slide_filter_hover.png') no-repeat;
+    background-position: center left;
+}
+a {
+    color:#0000ff;
+}
+a:hover{
+    color:#000000;
+}
+.footer.container{
+    padding: 0 0 10px 0;
+}
+.copyright{
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 0;
+    display:none;
+}
+.danhmucsach {
+    display: none;
+    position: relative;
+    z-index: 99999;
+    background: white;
+    padding:0;
+    line-height: 30px;
+    /* width: 310px;*/
+    width: 100%;
+    border:1px solid #cecece;
+    border-top: 0px;
+}
+.cms-home .danhmucsach, .cms-gioi-thieu .danhmucsach,  .cms-noi-quy .danhmucsach, .cms-huong-dan .danhmucsach, .cms-gio-mo-cua .danhmucsach
+{
+    display: block!important;
+}
+.header-top-categories:hover .danhmucsach{
+    display: block;
+}
+.danhmucsach ul{
+    margin:0;
+    padding: 0px;
+}
+.danhmucsach li{
+    width: 100%;
+    /* background: #384b9b none repeat scroll 0 0;*/
+    background: #A9ABAE none repeat scroll 0 0;
+    border-top: 1px solid white;
+    padding: 5px 0;
+    width: 100%;
+    /*display: inline-block;*/
+}
+.danhmucsach li a{
+    color: #000000;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: normal;
+    line-height: 20px!important;
+    margin-left: 25px;
+    color:black;
+    display: inline-block;
+}
+#tabs-container .tabs-menu li{
+    list-style: none;
+    display: inline-block;
+    border: 1px solid gray;
+    padding: 0 25px;
+    height: 40px;
+    line-height: 40px;
+    background: white;
+}
+#tabs-container .tabs-menu li.current{
+    background: #A9ABAE;
+}
+#tabs-container .tabs-menu li.current a{
+    color:black;
+    text-transform: uppercase;
+}
+#tabs-container .tabs-menu li a{
+    color:black;
+    text-transform: uppercase;
+}
+.danhmucsach li a:hover{
+    color:#ffffff;
+}
+.mucluc{
+    clear: both;
+    float: left;
+}
+.tabs-menu{
+    margin-bottom: 20px;
+    padding: 0;
+}
+/*product list*/
+.title {
+    font-size: 18px;
+    padding-bottom: 0px;
+    color:#008340;
+    border-bottom: 1px solid #c7c7c7;
+    margin-bottom: 20px;
+}
+.product-list li{
+    width: 20%;
+    list-style: none;
+    display: inline-block;
+    padding: 0 1%;
+}
+.product-list img{
+    width:159px;
+    height: 224px;
+}
+.product-list li.last-row{
+    margin-right: 0;
+}
+.product-list ul {
+    margin: 0px;
+    padding:25px  0px;
+}
+.product-list li {
+    float: left;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0 0.5%;
+    text-align: left;
+    width: 19%;
+    margin-bottom: 20px;
+}
+.toolbar {
+    clear: both;
+}
+.clear-both{
+    clear: both;
+}
+.pages {
+    border-top: 1px solid #c7c7c7;
+    padding-top: 20px;
+    text-align: center;
+}
+.pages li{
+    display: inline-block;
+}
+.pages strong{
+    float: left;
+    margin-right: 5px;
+}
+.pages ol{
+    float: left;
+    padding: 0px;
+    margin: 0px;
+}
+.pages li{
+    display: inline-block;
+    padding: 0 5px;
+}
+.product-view {
+    padding: 30px 0;
+}
+.breadcrumbs {
+    width: 100%;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #c7c7c7;
+    padding-bottom: 5px;
+}
+.breadcrumbs ul{
+    margin: 0px;
+    padding: 0px;
+}
+.breadcrumbs li{
+    display: inline-block;
+    list-style: none;
+}
+.breadcrumbs li a{
+    color: #232323;
+    text-decoration: none;
+    font-size: 14px;
+}
+.breadcrumbs li:after
+{
+    content:' > ';
+}
+.breadcrumbs li:last-child:after{
+    content: '';
+}
+.hatp{
+    float: left;
+    width: 25%;
+}
+.product-view .tentp{
+    font-size: 22px;
+    font-weight: bold;
+    color:#394a9a;
+    margin-bottom: 5px;
+}
+.tinhtrang{
+    font-weight: bold;
+    font-style: italic;
+}
+.tinhtrang .avaiable{
+    color:green;
+}
+.tinhtrang .unavaiable{
+    color:red;
+}
+.tinhtrang .bookborrow{
+    color:#fd7a05;
+}
+.btn-muonsach{
+    margin-top:10px;
+}
+.tentp {
+    clear: both;
+}
+.thuvien-catalog-product-view .main-info{
+    float: left;
+    width: 73%;
+    margin-left: 2%;
+
+}
+.footer h1, .footer h2, .footer a {
+    color: white;
+    text-align: center;
+    text-transform: inherit;
+    font-family: 'Arial', sans-serif;
+}
+.footer h1{
+    font-size: 17px;
+}
+.footer h2{
+    font-size: 15px;
+}
+.footer a {
+    text-transform: none;
+}
+.top-news a {
+    background: #394a9a none repeat scroll 0 0;
+    border-radius: 5px;
+    color: white;
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 25px auto;
+    padding: 20px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 180px;
+}
+.header-logo-cart{
+    /*background: url(../images/banner-bg.png);*/
+    background-repeat: no-repeat;
+    background-size: 100% 170px;
+    height: 170px;
+}
+.banner {
+    display: inline-block;
+    height: 170px;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+.banner img{
+    width: 100%;
+    height: 171px;
+}
+.logo {
+    width: 20%;
+    float: left;
+    padding: 10px 0;
+}
+.newbook .prodouct-name, .goodbook .prodouct-name, .category-view .prodouct-name  {
+    margin-bottom: 5px;
+    width: 159px;
+}
+.newbook .prodouct-name a, .goodbook .prodouct-name a, .category-view .prodouct-name a{
+    font-weight: bold;
+    color: #000000;
+}
+.tacgia{
+    color:#0000ff;
+}
+.newbook li, .goodbook li{
+    height: auto!important;
+}
+.goodbook li{
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 20px;
+}
+.category-list .title, .category-view .title{
+    color: #0000ff;
+    font-size: 24px;
+    margin: 20px 0;
+}
+.ddc-title {
+    float: left;
+    width: 30px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.each-ddc {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #A9ABAE;
+    padding: 20px 0 15px;
+}
+.each-ddc:last-child{
+    border-bottom: none;
+}
+.ddc-content li{
+    float: left;
+    width: 23%;
+    margin-right: 2%;
+    margin-bottom: 5px;
+}
+/*Customer*/
+
+.customer-account-login #login-form .col2-set {
+    float: left;
+    width: 50%;
+}
+.customer-account-login #login-form ul, .account-create ul{
+    padding: 0px;
+    margin: 0px;
+}
+.customer-account-login #login-form li{
+    list-style: none;
+    margin: 15px 0;
+}
+.customer-account-login label, .account-create label{
+    float: left;
+    position: relative;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.customer-account-login em, .account-create em{
+    float: right;
+    font-style: normal;
+    position: absolute;
+    right: -8px;
+    top: 0;
+    color: red;
+}
+.customer-account-login #login-form .form-list .input-box, .account-create .input-box, .loggin-to-borrow #login-form .form-list .input-box{
+    clear: both;
+}
+.customer-account-login #login-form .form-list input.input-text, .account-create input.input-text, .loggin-to-borrow #login-form .form-list input.input-text {
+    width: 262px;
+    border: 1px solid #dddddd;
+    color: black;
+    height: 25px;
+    padding: 5px 10px;
+    width: 262px;
+}
+.customer-account-login #login-form h2, .account-create h2{
+    border-bottom:1px solid #e5e5e5;
+    padding-bottom: 5px;
+}
+.customer-account-login  #login-form  a{
+    display: block;
+    width: 100%;
+}
+.customer-account-login #login-form .button, .account-create .button {
+    background: #dddddd none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 5px;
+    height: 46px;
+    margin-top: 10px;
+    padding: 0 40px;
+    cursor: pointer;
+}
+.field.name-lastname {
+    float: left;
+    width: auto;
+}
+.field.name-firstname {
+    float: left;
+    margin-right: 25px;
+}
+.account-create li {
+    clear: both;
+    display: block;
+    float: left;
+    width: 100%;
+    list-style: none;
+    margin-bottom: 15px;
+}
+.fieldset {
+    clear: both;
+    float: left;
+    margin-top: 5px;
+    width: 100%;
+}
+.account-create .field {
+    float: left;
+    margin-right: 25px;
+}
+.tv-top-menu{
+    background: #08335c;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+}
+
+.tv-top-menu ul{
+    margin: 0px;
+    padding: 0px;
+}
+.tv-top-menu ul li{
+    list-style: none;
+    display: inline-block;
+    width: 19%;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    border-right: 1px solid white;
+}
+.tv-top-menu ul li:last-child{
+    border-right: none;
+}
+.tv-top-menu ul li a{
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+.slogan {
+    font-family: times new roman;
+    font-size: 18px;
+    font-style: normal;
+    color: #000000;
+    padding:15px 25px 15px 0;
+
+
+}
+marquee{
+    text-align: right;
+}
+.giomocua{
+    float: right;
+    margin-top:0px;
+    width: 32%;
+    height: 450px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 25px;
+    background-color: #fff;
+}
+.giomocua p{
+    margin-top: 10px;
+}
+.giomocua p .ngay{
+    display: block;
+    margin-left: 20px;
+}
+.giomocua p .ban{
+    background: rgba(0, 0, 0, 0) url("../img/bg-gmc.png") no-repeat scroll 2px 3px;
+    display: inline-block;
+    font-weight: bold;
+    list-style: outside none circle;
+    padding-left: 20px;
+    text-transform: uppercase;
+}
+
+.sachmoi-slider{
+    width:64%;
+    margin-top: 0px;
+    height: 350px;
+    float: right;
+    padding: 0 2% 0 2%;
+
+}
+.btn-gio-mo{
+    text-align: center;
+    margin-bottom: 25px;
+}
+.btn-gio-mo a{
+    font-size:24px;
+    color:white;
+    background:#000000;
+    padding: 10px 12px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+.thoi-gian-chung{
+    border-top: 1px solid;
+    padding-top: 10px;
+}
+.container-tgc{
+    margin-left: 20px;
+}
+.sachmoi-slider ul{
+    padding: 0px;
+}
+.sachmoi-slider .bx-wrapper .bx-controls-direction a{
+    display: none;
+}
+.sachmoi-slider:hover .bx-wrapper .bx-controls-direction{
+    display: block;
+}
+/*lien he*/
+.frm-lienhe{
+    width: 50%;
+    float: left;
+    margin-top: 20px;
+}
+.map-lienhe{
+    width: 50%;
+    float: right;
+    margin-top: 25px;
+}
+.frm-lienhe h1 {
+    border-bottom: 3px solid gray;
+    width: 85%;
+}
+.frm-lienhe li{
+    list-style: none;
+}
+.frm-lienhe label{
+    float: left;
+    width: 100px;
+    font-size: 14px;
+}
+.frm-lienhe div{
+    margin-bottom: 10px;
+}
+.frm-lienhe input{
+    height: 30px;
+    padding: 0 10px;
+    min-width: 150px;
+}
+.frm-lienhe textarea{
+    padding: 10px;
+}
+.frm-lienhe  button {
+    background: #384b9b none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    margin-left: 140px;
+    padding: 10px 25px;
+    cursor: pointer;
+}
+.frm-lienhe .validation-advice {
+    color: red;
+    margin-left: 100px;
+    margin-top: 5px;
+}
+.messages{
+    margin: 15px 0 0;
+    padding: 0px;
+}
+.messages li{
+    list-style: none;
+}
+.messages .error-msg {
+    border: 1px solid red;
+    color: red;
+    padding: 10px 0;
+}
+.messages .success-msg{
+    border: 1px solid green;
+    color: green;
+    padding: 10px 0;
+}
+.cms-right-container{
+    width: 80%;
+    float: right;
+    text-align: center;
+    margin-top: 25px;
+}
+/*phieu sach*/
+.phieusach .title, .borrower .title{
+    margin-top: 25px;
+    border-bottom: 3px solid gray;
+    color: #000000;
+    font-size: 28px;
+    text-align: center;
+}
+.phieusach, .borrower {
+    margin: auto;
+    width: 800px;
+    text-align: center;
+}
+.phieusach.empty .list-tacpham{
+    text-align: center;
+    color: red;
+}
+.phieusach .list-tacpham th{
+    font-weight: bold;
+    border-bottom: 1px solid #dddddd;
+    padding: 10px;
+}
+.phieusach .list-tacpham td{
+    border-bottom: 1px solid #dddddd;
+    padding: 10px;
+}
+.loggin-to-borrow {
+    float: left;
+    text-align: left;
+    width: 40%;
+}
+.loggin-to-borrow li, .detail-information li{
+    list-style: none;
+    margin-bottom: 15px;
+}
+.loggin-to-borrow ul, .detail-information ul {
+    margin: 10px 0 0;
+    padding: 0;
+}
+.detail-information {
+    text-align: center;
+    margin: auto;
+    width:50%;
+    float: right;
+    padding-left: 5%;
+    border-left: 1px solid #ddd;
+}
+.detail-information input.input-text
+{
+    border: 1px solid #dddddd;
+    color: black;
+    height: 25px;
+    padding: 5px 10px;
+    width: 262px;
+}
+.detail-information textarea{
+    border: 1px solid #dddddd;
+    color: black;
+    padding: 5px 10px;
+    width: 262px;
+}
+.detail-information td{
+    padding: 10px ;
+}
+.thuvien-phieusach-index .list-tacpham img{
+    width: 20px;
+}
+.form-alert {
+    margin: 35px 0 10px 10px;
+    text-align: left;
+}
+.validation-advice{
+    text-align: left;
+    color: red;
+}
+.thuvien-phieusach-index em{
+    color: red;
+    float: right;
+    font-style: normal;
+    position: absolute;
+    right: -8px;
+    top: 0;
+}
+.thuvien-phieusach-index label{
+    float: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+    position: relative;
+}
+.thuvien-phieusach-index .input-box{
+    clear: both;
+}
+.success-msg {
+    color: green;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 30px;
+}
+.success {
+    margin-top: 40px;
+    text-align: center;
+}
+.success {
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 40px;
+}
+.sophieu-title{
+    font-size: 1.2em;
+}
+.sophieu{
+    font-size: 20px;
+    color:red;
+}
+.banso-title{
+    margin:15px 0 10px;
+    font-weight:bold;
+    font-size:1.1em;
+}
+.banso td{
+    vertical-align: top;
+}
+.banso tr td.each-tppop{
+    border-right:1px solid #ddd;
+    border-top:1px solid #ddd;
+    padding:5px;
+}
+.banso tr td.each-tppop:last-child{
+    border-right:0px;
+}
+.banso tr td:first-child{
+    padding-left:0px;
+}
+.banso tr td:last-child{
+    padding-right:0px;
+}
+.banso tr:first-child td{
+    border-top:0px;
+}
+.header-top-categories > span {
+    display: block;
+    padding-left: 20px;
+}
+.thuvien-phieusach-index .notice {
+    margin-bottom: 30px;
+    color: #000000;
+    font-weight: bold;
+}
+.thuvien-phieusach-index .loggin-to-borrow h2, .thuvien-phieusach-index .detail-information h2{
+    margin-top: 0px;
+    padding-top: 0px;
+    text-align: center;
+}
+.phieu-steps > span {
+    background: #4472c4 none repeat scroll 0 0;
+    border-radius: 50%;
+    color: white;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    text-align: center;
+    width: 30px;
+}
+.quytrinh > p {
+    border: 3px solid #000000;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+.quytrinh {
+    padding:0 20px ;
+}
+.quytrinh-notice{
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+.muiten{
+    height: 45px;
+    margin: auto;
+    text-align: center;
+
+}
+.thuvien-phieusach-index .buttons-set {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.thuvien-phieusach-index  .borrower button {
+    background: #4472c4 none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.thuvien-phieusach-index  button:hover{
+    background: #808080;
+}
+.quytrinh-sub {
+    font-style: italic;
+    margin-bottom: 20px;
+    margin-top: -15px;
+    text-align: center;
+    font-size: 0.9em;
+}
+.detail-information .buttons-set {
+    margin-top: 44px;
+}
+.top-categories img {
+    border-right: 1px solid white;
+    float: left;
+    margin-right: 10px;
+    padding: 5px 10px;
+}
+
+
+.top-categories img:hover{
+    background: #A9ABAE;
+}
+
+.menu-right {
+    background: #A9ABAE none repeat scroll 0 0;
+}
+.menu-right ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.menu-right li {
+    border-top: 1px solid white;
+    font-weight: bold;
+    list-style: outside none none;
+    padding: 8px 0;
+    text-align: center;
+}
+.menu-right li a{
+    line-height: 20px;
+    margin-left: 25px;
+    color: #000000;
+    cursor: pointer;
+}
+.menu-right li a:hover{
+    color: #ffffff;
+}
+.gio-mo-cua {
+    background: white none repeat scroll 0 0;
+    border: 2px solid #A9ABAE;
+    font-size: 15px;
+}
+.cms-gioi-thieu p {
+    line-height: 20px;
+    margin-top: 15px;
+    text-align: justify;
+    text-indent: 30px;
+}
+.cms-gioi-thieu p.title-gt{
+    text-align: center;
+    line-height: 30px;
+    color: #c00000;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.error-msg .sub-span{
+    font-size: 12px;
+}
+.main-container {
+    padding: 0 15px;
+    width: 970px;
+}
+.cms-home .main-container{
+    padding: 0px;
+    width: 1000px;
+}
+ul.product-list{
+    padding-left: 20px;
+}
+.thuvien-catalog-product-view .tinhtrang .bookborrow, .thuvien-catalog-product-view .tinhtrang .unavaiable {
+    cursor: pointer;
+}
+.thuvien-catalog-product-view .thongtinnguoimuon {
+    background: #ffffff;
+    border: 2px solid red;
+    display: block;
+    font-size: 0.9em;
+    font-style: normal;
+    padding: 10px;
+    position: absolute;
+    z-index: 10;
+    font-weight: normal;
+    line-height: 20px;
+    border-radius: 3px;
+}
+.mucluc {
+    width: 100%;
+}
+.mucluc .tbl-left{
+    width: 45%;
+    float: left;
+    margin-right: 10%;
+}
+.mucluc .tbl-right{
+    width: 45%;
+}
+.gio-mo-cua{
+    width: 240px!important;
+}
+.gio-mo-cua p{
+    font-weight: normal;
+    font-size: 14px;
+}
+.giomocua .bx-viewport {
+    margin: auto auto auto 8px;
+    overflow: hidden;
+    position: relative;
+    width: 248px!important;
+    box-shadow: none!important;
+}
+.giomocua #gmc li{
+    border-top: none!important;
+}
+.ban-gmc {
+    font-weight: normal!important;
+    color: #0000ff;
+    text-transform: title;
+    text-align: center;
+    font-size: 14px!important;
+}
+#gmc-bantriet, #gmc-banthan{
+    text-align: left;
+    margin-left: 5px;
+    color:#0000ff;
+    padding: 20px 0;
+}
+#gmc-bantriet p, #gmc-banthan p{
+    margin: 0px;
+    padding: 0px;
+}
+p.ban-title{
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px!important;
+}
+.ban-time {
+    margin-left: 23px !important;
+}
+p.ban-span{
+    margin-top: 7px!important;
+}
+#go-to-top{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    cursor: pointer;
+}
+#sachmoi-slider-container{
+    margin: auto; width: 235px;
+}
+@media only screen and (max-width: 767px) {
+    .page, .container, .main-container{
+        width: 100%;
+    }
+    .top-categories{
+        width: 100%;
+        float: none;
+    }
+    .skip-content{
+        width: 100%;
+        float: none;
+    }
+    #phieusach{
+        width: 100%;
+        float: none;
+    }
+    .header-logo-cart{
+        /*background: url(../images/banner-bg.png);*/
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        height: auto;
+    }
+    .banner {
+        display: inline-block;
+        height: auto;
+        padding: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .banner img{
+        width: 100%;
+        height: auto;
+        min-height:150px;
+    }
+    .logo {
+        width: 20%;
+        float: left;
+        padding: 10px 0;
+    }
+    .top-slider-news {
+        margin-top: 0px;
+        width: 100%;
+        float: none;
+    }
+    .giomocua {
+        float: none;
+        margin-top: 0px;
+        width: 100%;
+        height: 450px;
+        text-align: left;
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .sachmoi-slider {
+        width: 90%;
+        margin-top: 0px;
+        height: auto;
+        float: none;
+        padding: 0 5%;
+        display:none;
+    }
+    .danhmucsach{
+        position:static;
+        z-index:0;
+    }
+    #phieusach {
+        width: 100%;
+        float: none;
+    }
+    #sachmoi-slider-container{
+        margin: auto;
+        width: auto;
+    }
+
+    .cms-home .main-container{
+        padding: 0px;
+        width: 100%;
+    }
+    .prev-newbook,.next-newbook, .next-goodbook, .prev-newbook, .prev-goodbook{
+        display:none;
+    }
+    .goodbook, .newbook, .newbook ul li, .goodbook ul li, .newbook ul, .goodbook ul  {
+        width:100%!important;
+        position:static!important;
+    }
+    .newbook ul li, .goodbook ul li {
+        display:none;
+    }
+    .newbook ul li:nth-child(1), .newbook ul li:nth-child(2), .newbook ul li:nth-child(3), .newbook ul li:nth-child(4), .newbook ul li:nth-child(5),
+    .goodbook ul li :nth-child(1), .goodbook ul li:nth-child(2), .goodbook ul li:nth-child(3), .goodbook ul li:nth-child(4), .goodbook ul li:nth-child(5){
+        display:block;
+        margin-bottom:20px;
+    }
+    .newbook ul li div, .newbook ul li a, .goodbook ul li a, .goodbook ul li, .newbook .prodouct-name, .goodbook .prodouct-name, .category-view .prodouct-name{
+        text-align:center;
+    }
+    .newbook .prodouct-name, .goodbook .prodouct-name, .category-view .prodouct-name, #search_mini_form select, #search{
+        width:100%;
+    }
+    .search-categories, .header-top-categories{
+        height:auto;
+    }
+    .search-button{
+        position:static;
+    }
+    #search{
+        margin-left:0px;
+    }
+    #phieusach{
+        text-align:center;
+    }
+    .giomocua{
+        height:auto;
+    }
+    .gio-mo-cua{
+        width:100%!important;
+    }
+    .gio-mo-cua .bx-viewport {
+        width:100%;
+    }
+    .top-slider{
+        width:100%;
+    }
+    #go-to-top{
+        position: fixed;
+        bottom: 10px;
+        right: 5px;
+        width: 25px;
+        cursor: pointer;
+    }
+    .cms-home .danhmucsach, .cms-gioi-thieu .danhmucsach,  .cms-noi-quy .danhmucsach, .cms-huong-dan .danhmucsach, .cms-gio-mo-cua .danhmucsach
+    {
+        display: none!important;
+    }
+    .header-top-categories:hover .danhmucsach{
+        display: block!important;
+    }
+    .main-container{
+        padding:0px;
+    }
+    .cms-container {
+        width: auto !important;
+        padding: 0 15px;
+    }
+    .cms-right-container, .cms-right-container img{
+        width:100%;
+    }
+    .map-lienhe {
+        width: 100%;
+        float: none;
+        margin-top: 25px;
+    }
+    .frm-lienhe {
+        width: 90%;
+        float: none;
+        margin: 20px auto;
+    }
+    .frm-lienhe textarea{
+        width:90%;
+    }
+    .thuvien-catalog-category-list .col-main, .thuvien-catalog-category-view .col-main,  .thuvien-phieusach-xacnhan  .col-main, .thuvien-search-index  .col-main,
+    .thuvien-catalog-product-view .col-main, .thuvien-tacgia-listp .col-main{
+        padding:0 10px;
+    }
+    .ddc-content li{
+        width:100%;
+    }
+    .thuvien-catalog-category-view .product-list li, .thuvien-search-index  .product-list li, .thuvien-tacgia-listp .col-main .product-list li{
+        width:100%;
+        text-align:center;
+    }
+    .hatp {
+        float: none;
+        width: 40%;
+        margin: auto;
+    }
+    .thuvien-catalog-product-view .main-info{
+        width:100%;
+        float:none;
+    }
+    .banso tr td.each-tppop{
+        border-top: 1px solid #ddd;
+        padding: 5px;
+        display: block;
+        width: 100%;
+        border-right:none;
+    }
+    .thuvien-catalog-product-view .banso {
+        width: 100%;
+    }
+    .phieusach, .borrower{
+        width:auto;
+    }
+    .detail-information {
+        text-align: center;
+        margin: auto;
+        width: 100%;
+        float: none;
+        padding-left: 0%;
+        border-left: none;
+        margin: auto;
+    }
+    .loggin-to-borrow{
+        width:100%;
+        float:none;
+        margin-bottom:40px;
+    }
+    .detail-information textarea, .detail-information input.input-text{
+        width:auto;
+    }
+    .page{
+        box-shadow:none;
+    }
+    .list-tacpham{
+        width:96%;
+        overflow:hidden;
+    }
+}
+.detail-information.full{
+    width: 100%;
+    border-left: none;
+}
+#datmuonsach_form .borrower{
+    width: auto;
+}
+.dt_fail{
+    color: red;
+    font-weight: bold;
+}
+.dt_success{
+    color: green;
+    font-weight: bold;
+}
+.thuvien-catalog-product-view .tt_nguoi_dattruoc {
+    background: #ffffff;
+    border: 2px solid green;
+    display: block;
+    font-size: 0.9em;
+    font-style: normal;
+    padding: 10px;
+    position: absolute;
+    z-index: 10;
+    font-weight: normal;
+    line-height: 20px;
+    border-radius: 3px;
+}
