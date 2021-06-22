@@ -1,0 +1,23 @@
+.anh_nam{
+    background-color: #4e555b; /*đây là ghi chú, thẻ này dùng để áp dụng cho xxxx*/
+}
+#demo_id{
+    background-color: #1c7430;
+}
+h1{
+    color: #2b90d9;
+}
+h1.anh_nam{
+    background-color: bisque;
+    background-image: image('demo.jpg');
+}
+
+div:first-child {
+    background-color: #000000;
+    color: white;
+}
+p:first-child h3{
+    background-color: #000000;
+    color: white;
+}
+
