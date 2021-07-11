@@ -15,6 +15,7 @@ class BookController extends Controller
     public function index()
     {
 //        return view('book.book', compact('ddc'));
+        
         return view('book.book');
     }
 
@@ -83,4 +84,7 @@ class BookController extends Controller
     {
         //
     }
+
 }
+
+

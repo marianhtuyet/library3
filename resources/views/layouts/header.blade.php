@@ -36,7 +36,7 @@
                         <div class="header-top-categories">
                             <span>Danh mục sách</span>
                             <div class="danhmucsach container">
-                                <ul id='menu'>
+                                <ul id='menu' class="dropdown-menu">
                                     <li>
                                         <a href="{{route('category.100')}}">100- Triết học-Tâm lý học</a>
                                     </li>

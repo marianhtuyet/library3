@@ -13,15 +13,15 @@
                 <ul class="product-list">
                     <li>
                         <div class="">
-                            <a href="{{route('category.100')}}">
+                            <a href="{{route('book.book')}}">
                                 <img src="http://thuviendaminh.net/skin//frontend/rwd/thuvien/images/demobooks/biamau.png"
                                      title="The Importance of Being Understood">
 
                             </a>
                         </div>
                         <div class="book-infor">
-                            <div class="prodouct-name">
-                                <a href="{{route('category.100')}}" title="The Importance of Being Understood">
+                            <div class="product-name">
+                                <a href="{{route('book.book')}}" title="The Importance of Being Understood">
                                     The Importance of Being Understood                                </a>
                             </div>
 

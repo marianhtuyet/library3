@@ -13,7 +13,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../assets/css/style-demo.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="../assets/css/jquery.bxslider.css" media="all"/>
+    
     <script type="text/javascript" src="../js/prototype/prototype.js"></script>
     <script type="text/javascript" src="../js/lib/jquery/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="../js/lib/jquery/noconflict.js"></script>
