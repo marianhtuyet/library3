@@ -84,6 +84,10 @@ class BookController extends Controller
     {
         //
     }
+    public function getBookInfo($id){
+        echo '1233';
+        echo 'test test test ';
+    }
 
 }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\tpddc;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class tpddcController extends Controller
 {
@@ -14,8 +15,17 @@ class tpddcController extends Controller
      */
     public function index()
     {
-        $ddc = tpddc::where([['ddc','>=', 100], ['ddc', '<', 300]])->get();
-        return view('category.100', compact('ddc'));
+      
+        $books = DB::table('tpddc')
+        ->join('books', 'books.ddc_id', '=', 'tpddc.id')
+        ->join('author_books', 'author_books.book_id', '=', 'books.id')
+        ->join('authors', 'authors.id', '=', 'author_books.author_id')
+        ->where([['tpddc.ddc','>=', 100], ['tpddc.ddc', '<', 300]])
+        ->select( 'authors.name as author_name', 'books.*')
+        ->orderBy('tpddc.ddc', 'ASC')
+        ->get();
+
+        return view('category.100', compact('books'));
     }
 
     /**

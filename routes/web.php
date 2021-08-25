@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('category.category_content');
-});
+}); 
 Route::get('homepage/index', 'IndexController@getList')->name('homepage.index');
 Route::get('category/100','tpddcController@index')->name('category.100');
 Route::get('book/book','BookController@index')->name('book.book');
@@ -27,3 +27,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/book/{id}', 'BookController@getBookInfo')->name('book.infor');
