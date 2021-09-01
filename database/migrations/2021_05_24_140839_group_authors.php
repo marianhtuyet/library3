@@ -16,6 +16,7 @@ class GroupAuthors extends Migration
         Schema::create('group_authors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('sign');
             $table->timestamps();
         });
     }

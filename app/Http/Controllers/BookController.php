@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -85,8 +86,11 @@ class BookController extends Controller
         //
     }
     public function getBookInfo($id){
-        echo '1233';
-        echo 'test test test ';
+        $books = DB::table('books')
+        ->where('id',$id)
+        ->orderBy('id', 'ASC')
+        ->get();
+        return view('book.book', compact('books'));
     }
 
 }

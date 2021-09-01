@@ -18,6 +18,10 @@ class AuthorBooks extends Migration
             $table->integer('book_id');
             $table->integer('author_id');
             $table->timestamps();
+            $table->string('sign');
+            $table->string('translator_id');
+            $table->string('is_translator');
+            $table->string('group_authors');
         });
     }
 

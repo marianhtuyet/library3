@@ -26,6 +26,7 @@ class Readers extends Migration
             $table->string('email');
             $table->string('note')->nullable();
             $table->binary('image');
+            $table->string('year_of_birth');
             $table->timestamps();
         });
     }

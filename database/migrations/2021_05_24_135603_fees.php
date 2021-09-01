@@ -20,6 +20,8 @@ class Fees extends Migration
             $table->date('date_start');
             $table->string('reason');
             $table->float('amount');
+            $table->integer('reason_id');
+            $table->date('date_due');
             $table->timestamps();
         });
     }

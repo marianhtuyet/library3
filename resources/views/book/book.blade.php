@@ -6,12 +6,13 @@
 <div class="main-container col1-layout">
     <div class="main">
         <div class="col-main">
+             @foreach ($books as $book)
             <div class="product-view" xmlns="http://www.w3.org/1999/html">
                 <div class="breadcrumbs">
                     <ul>
                         <li><a href="{{route('book.book')}}">Trang chủ</a></li>
                         <!--<li><a href="">Học viện Đa Minh</a></li>-->
-                        <li><a href="">The Importance of Being Understood</a></li>
+                        <li><a href="">{{$book->name}}</a></li>
                     </ul>
                 </div>
                 <div class="image-main-info">
@@ -21,7 +22,7 @@
                     <div class="main-info">
                         <table class="tbl-book-info">
                             <tbody><tr>
-                                <td class="tentp" q="2">The Importance of Being Understood</td>
+                                <td class="tentp" q="2">{{$book->name}}</td>
                             </tr>
                             <tr>
                                 <td class="reg-content">Tác giả: </td>
@@ -91,7 +92,7 @@
                 <div class="related-product">
 
                 </div>
-                
+            @endforeach
             </div>
             <div id="datmuonsach_form" style="display: none; background:white; border-radius: 10px; padding:15px;">
                 <div class="borrower">

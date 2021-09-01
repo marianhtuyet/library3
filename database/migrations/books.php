@@ -34,7 +34,8 @@ class Books extends Migration
             $table->float('cost');
             $table->integer('unit_id');
             $table->integer('status_id');
-            $table->longText('file_data');
+            $table->string('format_book');
+            $table->file('file_data');
             $table->timestamps();
         });
         
