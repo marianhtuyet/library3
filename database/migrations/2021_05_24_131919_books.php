@@ -35,6 +35,7 @@ class Books extends Migration
             $table->integer('unit_id');
             $table->integer('status_id');
             $table->longText('file_data');
+            $table->string('format_book');
             $table->timestamps();
         });
         

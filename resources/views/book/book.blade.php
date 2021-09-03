@@ -26,18 +26,18 @@
                             </tr>
                             <tr>
                                 <td class="reg-content">Tác giả: </td>
-                                <td>Adam Morton</td>
+                                <td>{{$book->author_name}}</td>
                             </tr>
                             <tr class="reg-content">
-                                <td>DDC: </td><td>100 - 100- Triết học-Tâm lý học</td>
+                                <td>DDC: </td><td>{{$book->ddc_name}}</td>
                             </tr>
                             <tr class="reg-content">
                                 <td>Ngôn ngữ: </td>
-                                <td>Anh</td>
+                                <td>{{$book->language_name}}</td>
                             </tr>
                             <tr class="reg-content">
                                 <td>Số cuốn: </td>
-                                <td>1</td>
+                                <td>{{$book->chapter}}</td>
                             </tr>
                             </tbody></table>
                         <p class="banso-title">Hiện trạng các bản sách</p>
@@ -47,33 +47,33 @@
                                     <table>
                                         <tbody><tr>
                                             <td class="maso">Mã số: </td>
-                                            <td><b>215OP0001295</b></td>
+                                            <td><b>{{$book->id}}</b></td>
 
                                         </tr>
                                         <tr class="reg-content">
                                             <td>Nhà Xuất bản: </td>
-                                            <td>Routledge</td>
+                                            <td>{{$book->publishers_name}}</td>
                                         </tr>
                                         <tr class="reg-content">
                                             <td>Năm Xuất bản: </td>
-                                            <td>2003</td>
+                                            <td>{{$book->year_publishing}}</td>
                                         </tr>
                                         <tr class="reg-content">
                                             <td>Khổ sách: </td>
                                             <td>
-                                                20                                                </td>
+                                                xxx                                                </td>
                                         </tr>
                                         <tr class="reg-content">
                                             <td>Số trang: </td>
                                             <td>
-                                                225                                                </td>
+                                                {{$book->page_number}}                                                </td>
                                         </tr>
                                         <tr class="reg-content">
                                         </tr>
                                         <tr class="reg-content">
                                             <td>Tình trạng: </td>
                                             <td class="tinhtrang ">
-                                                <span class="avaiable">Hiện có</span>
+                                                <span class="avaiable">{{$book->status_name}}</span>
                                             </td>
                                         </tr>
                                         <tr>

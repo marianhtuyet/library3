@@ -20,6 +20,7 @@ class ReaderBooks extends Migration
             $table->date('date_borrow');
             $table->date('date_due');
             $table->integer('limit_date');
+            
             $table->timestamps();
         });
     }
