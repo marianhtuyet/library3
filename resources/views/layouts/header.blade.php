@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="container">
-                <button type="button" class="btn btn-dank">Đăng nhập</button>
+                <button type="button" href="{{route('login')}}" class="btn btn-dank">Đăng nhập</button>
                 <button type="button" class="btn btn-dark">Đăng ký</button>
             </div>
             <nav id="navbar" class="navbar order-last order-lg-0">
