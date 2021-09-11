@@ -15,7 +15,7 @@
                 
                      <li>
                         <div class="">
-                            <a href="{{route('book.infor', $book->id)}}">
+                            <a href="{{route('book.info', $book->id)}}">
                                 <img src="http://thuviendaminh.net/skin//frontend/rwd/thuvien/images/demobooks/biamau.png"
                                      title="{$book->name}">
 
@@ -23,7 +23,7 @@
                         </div>
                         <div class="book-infor">
                             <div class="product-name">
-                                <a href="{{route('book.infor', $book->id)}}" title="{$book->name}">
+                                <a href="{{route('book.info', $book->id)}}" title="{$book->name}">
                                    {{$book->name}}</a>
                             </div>
 

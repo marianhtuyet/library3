@@ -9,10 +9,10 @@
                     </a>
                 </div>
             </div>
-            <div class="container">
+         <!--    <div class="container">
                 <button type="button" href="{{route('login')}}" class="btn btn-dank">Đăng nhập</button>
                 <button type="button" class="btn btn-dark">Đăng ký</button>
-            </div>
+            </div> -->
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
                   <li>
@@ -84,8 +84,13 @@
                     </li>
 
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Login</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Sign up</a></li>
+                  <!--   @if(@section('login'))
+                     <li>{{Auth::user()->name}}</li>
+                    @else
+                    @endif -->
+                    <li><a class="nav-link scrollto" href="{{route('login')}}">Login</a></li>
+                    <li><a class="nav-link scrollto" href="{{route('register')}}">Sign up</a></li>
+                   
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

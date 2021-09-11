@@ -9,7 +9,7 @@ class IndexController extends Controller
     public function getList()
     {
 //        $bestsale = Products::where('best_sale', '1')->get();
-        return view('welcome');
+        return view('category.category_content');
     }
 
 }
