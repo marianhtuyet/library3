@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,13 +31,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Auth::routes();
 
 Route::get('/book/{id}', 'BookController@getBookInfo')->name('book.info');
-
-// Sửa đường dẫn trang chủ mặc định
-// Route::get('/home', 'IndexController@getList')->name('home');
-
-// Sửa đường dẫn trang chủ mặc định
-// Route::get('/', 'HocsinhController@index');
-// Route::get('/home', 'HocsinhController@index');
  
 // Đăng ký thành viên
 Route::get('/register', 'Auth\RegisterController@getRegister')->name('register');
@@ -48,3 +42,20 @@ Route::post('login', [ 'as' => 'login', 'uses' => 'Auth\LoginController@postLogi
  
 // Đăng xuất
 Route::get('logout', [ 'as' => 'logout', 'uses' => 'Auth\LogoutController@getLogout']);
+//Quên pass
+// Route::get('/forgot-password', 'Auth\ForgotPasswordController@getReset')->middleware('guest')->name('password.request');
+
+
+Route::post('/forgot-password', function (Request $request) {
+    $request->validate(['email' => 'required|email']);
+
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+
+    return $status === Password::RESET_LINK_SENT
+                ? back()->with(['status' => __($status)])
+                : back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
+Route::post('reset-password', 'ResetPasswordController@sendMail');
+Route::put('reset-password/{token}', 'ResetPasswordController@reset')->name('reset-password');

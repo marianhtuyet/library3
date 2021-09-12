@@ -154,7 +154,7 @@
                         <div class="form-group">
                             <button type="submit" class="btn btn-lg btn-primary btn-block">Đăng ký</button>
                         </div>
-                        <center><a href="/{{ url('/login') }}">Quay về đăng nhập</a></center>
+                        <center><a href="{{ route('login') }}">Quay về đăng nhập</a></center>
                     </form>
                 </div>
             </div>

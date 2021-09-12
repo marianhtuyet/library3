@@ -72,7 +72,6 @@ class LoginController extends Controller
         // Nếu dữ liệu hợp lệ sẽ kiểm tra trong csdl
             $email = $request->input('email');
             $password = $request->input('password');
-            echo $password;
 
             if( Auth::attempt(['email' => $email, 'password' =>$password])) {
             // Kiểm tra đúng email và mật khẩu sẽ chuyển trang
