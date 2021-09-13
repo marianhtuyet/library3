@@ -59,3 +59,18 @@ Route::post('/forgot-password', function (Request $request) {
 })->middleware('guest')->name('password.email');
 Route::post('reset-password', 'ResetPasswordController@sendMail');
 Route::put('reset-password/{token}', 'ResetPasswordController@reset')->name('reset-password');
+
+//Author
+## View 
+Route::get('/authors', 'AuthorsController@index')->name('authors.index');
+
+## Create
+Route::get('/authors/create', 'AuthorsController@create')->name('author.create');
+Route::post('/authors/store', 'AuthorsController@store')->name('author.store');
+
+## Update
+Route::get('/authors/store/{id}', 'AuthorsController@edit')->name('author.edit');
+Route::post('/authors/update/{id}', 'AuthorsController@update')->name('author.update');
+
+## Delete
+Route::get('/authors/delete/{id}', 'AuthorsController@destroy')->name('author.delete');
