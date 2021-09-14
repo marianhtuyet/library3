@@ -62,10 +62,10 @@ Route::put('reset-password/{token}', 'ResetPasswordController@reset')->name('res
 
 //Author
 ## View 
-Route::get('/authors', 'AuthorsController@index')->name('authors.index');
+Route::get('/authors', 'AuthorsController@index')->name('author');
 
 ## Create
-Route::get('/authors/create', 'AuthorsController@create')->name('author.create');
+Route::get('/authors/create', 'AuthorsController@add')->name('author.create');
 Route::post('/authors/store', 'AuthorsController@store')->name('author.store');
 
 ## Update

@@ -11,4 +11,5 @@ class Authors extends Model
       protected $fillable = [
       'name','is_translator' 
    ];
+   
 }

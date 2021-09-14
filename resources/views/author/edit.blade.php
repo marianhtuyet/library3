@@ -1,10 +1,10 @@
 <!-- Extends template page -->
-@extends('layout.app')
+@extends('layouts.master')
 
 <!-- Specify content -->
 @section('content')
 
-    <h3>Edit Subject</h3>
+    <h3>Edit Author</h3>
 
     <div class="row">
 
@@ -21,18 +21,18 @@
           
             <div class="actionbutton">
                       
-                <a class='btn btn-info float-right' href="{{route('subjects')}}">List</a>
+                <a class='btn btn-info float-right' href="{{route('author')}}">List</a>
                       
             </div>
                       
-            <form action="{{route('subjects.update',[$subject->id])}}" method="post" >
+            <form action="{{route('author.update',[$author->id])}}" method="post" >
                 {{csrf_field()}}
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Name <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="name" class="form-control col-md-12 col-xs-12" name="name" placeholder="Enter subject name" required="required" type="text" value="{{old('name',$subject->name)}}">
+                        <input id="name" class="form-control col-md-12 col-xs-12" name="name" placeholder="Enter author name" required="required" type="text" value="{{old('name',$author->name)}}">
  
                         @if ($errors->has('name'))
                           <span class="errormsg">{{ $errors->first('name') }}</span>
@@ -41,13 +41,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Description
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Is translator
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea name='description' id='description' class='form-control' placeholder="Enter description">{{old('description',$subject->description)}}</textarea>
+                 <!--       @if({{old('is_translator',$author->is_translator)}})
 
-                        @if ($errors->has('description'))
-                          <span class="errormsg">{{ $errors->first('description') }}</span>
+                         <input type="checkbox" name="is_translator" value="1" checked />
+                         @else
+                         <input type="checkbox" name="is_translator" value="0" checked />
+                         @endif -->
+                        @if ($errors->has('is_translator'))
+                          <span class="errormsg">{{ $errors->first('is_translator') }}</span>
                         @endif
                     </div>
                 </div>

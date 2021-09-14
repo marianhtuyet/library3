@@ -1,5 +1,5 @@
 <!-- Extends template page -->
-@extends('layout.app')
+@extends('layouts.master')
 
 <!-- Specify content -->
 @section('content')
@@ -17,48 +17,49 @@
         </div>
         @endif
         <!-- Alert message (end) -->
-     
+
         <div class="actionbutton">
-                      
-            <a class='btn btn-info float-right' href="{{route('subjects')}}">List</a>
-                      
+
+            <a class='btn btn-info float-right' href="{{route('author')}}">List</a>
+
         </div>
-                      
-            <form action="{{route('subjects.store')}}" method="post" id="subjectForm">
-                {{csrf_field()}}
 
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+        <form action="{{route('author.store')}}" method="post" id="authorForm">
+            {{csrf_field()}}
+
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="name" class="form-control col-md-12 col-xs-12" name="name" placeholder="Enter Author name" required="required" type="text">
+
+                    @if ($errors->has('name'))
+                    <span class="errormsg">{{ $errors->first('name') }}</span>
+                    @endif
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Is author
                     </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="name" class="form-control col-md-12 col-xs-12" name="name" placeholder="Enter subject name" required="required" type="text">
+                    
+                    <input type="checkbox" name="is_translator" value="1"/>
 
-                        @if ($errors->has('name'))
-                          <span class="errormsg">{{ $errors->first('name') }}</span>
-                        @endif
-                    </div>
+                    @if ($errors->has('is_translator'))
+                    <span class="errormsg">{{ $errors->first('is_translator') }}</span>
+                    @endif
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Description
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea name='description' id='description' class='form-control' placeholder="Enter description"></textarea>
+            <div class="form-group">
+                <div class="col-md-6">
 
-                        @if ($errors->has('description'))
-                          <span class="errormsg">{{ $errors->first('description') }}</span>
-                        @endif
-                    </div>
+                    <input type="submit" name="submit" value='Submit' class='btn btn-success'>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <div class="col-md-6">
-                          
-                        <input type="submit" name="submit" value='Submit' class='btn btn-success'>
-                    </div>
-                </div>
-
-            </form>
+        </form>
 
     </div>
 </div>
