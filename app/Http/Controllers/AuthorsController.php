@@ -22,9 +22,11 @@ class AuthorsController extends Controller
 
    protected function create(array $data)
    {
+      if(!array_key_exists('is_translator', $data))
+      {
 
-      if(in_array('is_translator', $data))
-         $data = array_merge($data->all(), ['is_translator' => '0']);
+         $data = array_merge($data, ['is_translator' => '0']);
+      }
 
       return Authors::create([
          'name' => $data['name'],
@@ -33,30 +35,25 @@ class AuthorsController extends Controller
    }
 
    public function store(Request $request){
-      // $data = $request;
-
-
       $validator = Validator::make($request->all(), [
          'name' => 'required|string|min:3',
          'is_translator' => 'boolean',
       ]);
-      
+
       if ($validator->fails()) {
          return redirect()->Back()->withInput()->withErrors($validator);
       }
-      if(!$request->input('is_translator')){
-         echo '1111111111111111111';
-         $request = $request->all() + ['is_translator' => '0'];
-      }
-      if($record = $this->create( $request)){
-         // Session::flash('message', 'Added Successfully!');
-         // Session::flash('alert-class', 'alert-success');
-         Session::flash('success', 'Tạo tác giả thành công!');
+      
+      if($record = $this->create($request->all())){
+         Session::flash('message', 'Tạo tác giả thành công!');
+         Session::flash('alert-class', 'alert-success');
+         // Session::flash('success', 'Tạo tác giả thành công!');
          return redirect()->route('author');
       }else{
-         Session::flash('error', 'Tạo tác giả thất bại!');
-         // Session::flash('message', 'Data not saved!');
-         // Session::flash('alert-class', 'alert-danger');
+         Session::flash('message', 'Cập nhật tác giả thất bại!');
+         Session::flash('alert-class', 'alert-danger');
+         // Session::flash('error', 'Tạo tác giả thất bại!');
+
       }
 
       return Back();
@@ -68,33 +65,31 @@ class AuthorsController extends Controller
       return view('author.edit', )->with('author',$author);
    }
 
-   public function firstOrCreate($data){
-      return Authors::create([
-         'name' => $data['name'],
-         'is_translator' => ($data['is_translator']) ? 1: 0,
-      ]);
-   }
+
+
    public function update(Request $request,$id){
       $data = $request->except('_method','_token','submit');
 
       $validator = Validator::make($request->all(), [
          'name' => 'required|string|min:3',
-         'description' => 'required|string|min:3',
+         'is_translator' => 'boolean',
       ]);
 
       if ($validator->fails()) {
          return redirect()->Back()->withInput()->withErrors($validator);
       }
       $subject = authors::find($id);
-
+      if(!in_array('is_translator', $data))
+         $subject->is_translator = 0;
       if($subject->update($data)){
-
-         Session::flash('message', 'Update successfully!');
+         // Session::flash('success', 'Cập nhật tác giả thành công!');
+         Session::flash('message', 'Cập nhật tác giả thành công!');
          Session::flash('alert-class', 'alert-success');
-         return redirect()->route('authors');
+         return redirect()->route('author');
       }else{
-         Session::flash('message', 'Data not updated!');
+         Session::flash('message', 'Cập nhật tác giả thất bại!');
          Session::flash('alert-class', 'alert-danger');
+         // Session::flash('error', 'Cập nhật tác giả thất bại!');
       }
 
       return Back()->withInput();
@@ -102,10 +97,10 @@ class AuthorsController extends Controller
 
    // Delete
    public function destroy($id){
-      authors::destroy($id);
+      Authors::destroy($id);
 
       Session::flash('message', 'Delete successfully!');
       Session::flash('alert-class', 'alert-success');
-      return redirect()->route('authors');
+      return redirect()->route('author');
    }
 }

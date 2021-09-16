@@ -5,19 +5,16 @@
             <div class="header-logo-cart">
                 <div class="top-banner container">
                     <a class="banner" href="">
-                        <img src="../assets/img/banner.jpg"/>
+                        <img src="/assets/img/banner.jpg"/>
                     </a>
                 </div>
             </div>
-         <!--    <div class="container">
-                <button type="button" href="{{route('login')}}" class="btn btn-dank">Đăng nhập</button>
-                <button type="button" class="btn btn-dark">Đăng ký</button>
-            </div> -->
+
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
                   <li>
                    <a href="" class="nav-link scrollto active">
-                    <img src="../assets/img/home.png" alt="Thư viện Đa Minh"/>
+                    <img src="/assets/img/home.png" alt="Thư viện Đa Minh"/>
                 </a>
 
                 <li class="dropdown"><a href="#"><span>Danh mục sách</span> <i class="bi bi-chevron-down"></i></a>
@@ -60,15 +57,9 @@
                         </select>
 
                         <input type="email" name="email"  placeholder="Từ khóa cần tìm">
-           <!--          <div>
-                    <input id="search" type="search" name="q" value=""
-                    class="input-text required-entry" maxlength="128"
-                    placeholder="Từ khóa cần tìm"/>
-                </div> -->
+      
                 <input type="submit" value="Search">
-                  <!--   <button type="submit" title="Tìm" class="button search-button">
-                        <span><span>Tìm</span></span>
-                    </button> -->
+                  
                 </div>
 
                 <!-- <div id="search_autocomplete" class="search-autocomplete"></div> -->

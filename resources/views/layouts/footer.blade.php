@@ -13,5 +13,5 @@
         </h2>
         <p>&nbsp;</p></div>
     <address class="copyright">&copy; 2017 Magento Demo Store. All Rights Reserved.</address>
-    <img src="assets/img/go-top.png" id="go-to-top"/>
+    <img src="/assets/img/go-top.png" id="go-to-top"/>
 </div>

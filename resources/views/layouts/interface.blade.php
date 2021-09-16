@@ -11,52 +11,52 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../assets/css/style-demo.css" media="all"/>
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" media="all"/>
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" media="all"/>
-    <link rel="stylesheet" type="text/css" href="../assets/css/jquery.bxslider.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/style-demo.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/jquery.bxslider.css" media="all"/>
     <!-- Vendor CSS Files -->
-    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     
-    <script type="text/javascript" src="../js/prototype/prototype.js"></script>
-    <script type="text/javascript" src="../js/lib/jquery/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="../js/lib/jquery/noconflict.js"></script>
-    <script type="text/javascript" src="../js/lib/ccard.js"></script>
-    <script type="text/javascript" src="../js/prototype/validation.js"></script>
-    <script type="text/javascript" src="../js/scriptaculous/builder.js"></script>
-    <script type="text/javascript" src="../js/scriptaculous/effects.js"></script>
-    <script type="text/javascript" src="../js/scriptaculous/dragdrop.js"></script>
-    <script type="text/javascript" src="../js/scriptaculous/controls.js"></script>
-    <script type="text/javascript" src="../js/scriptaculous/slider.js"></script>
-    <script type="text/javascript" src="../js/varien/js.js"></script>
-    <script type="text/javascript" src="../js/varien/form.js"></script>
-    <script type="text/javascript" src="../js/mage/translate.js"></script>
-    <script type="text/javascript" src="../js/mage/cookies.js"></script>
-    <script type="text/javascript" src="../js/lib/modernizr.custom.min.js"></script>
-    <script type="text/javascript" src="../js/lib/selectivizr.js"></script>
-    <script type="text/javascript" src="../js/lib/matchMedia.js"></script>
-    <script type="text/javascript" src="../js/lib/matchMedia.addListener.js"></script>
-    <script type="text/javascript" src="../js/lib/enquire.js"></script>
+    <script type="text/javascript" src="/js/prototype/prototype.js"></script>
+    <script type="text/javascript" src="/js/lib/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/js/lib/jquery/noconflict.js"></script>
+    <script type="text/javascript" src="/js/lib/ccard.js"></script>
+    <script type="text/javascript" src="/js/prototype/validation.js"></script>
+    <script type="text/javascript" src="/js/scriptaculous/builder.js"></script>
+    <script type="text/javascript" src="/js/scriptaculous/effects.js"></script>
+    <script type="text/javascript" src="/js/scriptaculous/dragdrop.js"></script>
+    <script type="text/javascript" src="/js/scriptaculous/controls.js"></script>
+    <script type="text/javascript" src="/js/scriptaculous/slider.js"></script>
+    <script type="text/javascript" src="/js/varien/js.js"></script>
+    <script type="text/javascript" src="/js/varien/form.js"></script>
+    <script type="text/javascript" src="/js/mage/translate.js"></script>
+    <script type="text/javascript" src="/js/mage/cookies.js"></script>
+    <script type="text/javascript" src="/js/lib/modernizr.custom.min.js"></script>
+    <script type="text/javascript" src="/js/lib/selectivizr.js"></script>
+    <script type="text/javascript" src="/js/lib/matchMedia.js"></script>
+    <script type="text/javascript" src="/js/lib/matchMedia.addListener.js"></script>
+    <script type="text/javascript" src="/js/lib/enquire.js"></script>
 
 
-    <script type="text/javascript" src="../js/app.js"></script>
-    <script type="text/javascript" src="../js/lib/jquery.cycle2.min.js"></script>
-    <script type="text/javascript" src="../js/lib/jquery.cycle2.swipe.min.js"></script>
-    <script type="text/javascript" src="../js/slideshow.js"></script>
-    <script type="text/javascript" src="../js/lib/imagesloaded.js"></script>
-    <script type="text/javascript" src="../js/minicart.js"></script>
-    <script type="text/javascript" src="../js/thuvien_common.js"></script>
-    <script type="text/javascript" src="../jcarousellite/js/jquery.jcarousellite.js"></script>
-    <script type="text/javascript" src="../jcarousellite/js/jquery.easing-1.3.js"></script>
-    <script type="text/javascript" src="../jcarousellite/js/jquery.mousewheel-3.1.12.js"></script>
-    <script type="text/javascript" src="../bxslider/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/lib/jquery.cycle2.min.js"></script>
+    <script type="text/javascript" src="/js/lib/jquery.cycle2.swipe.min.js"></script>
+    <script type="text/javascript" src="/js/slideshow.js"></script>
+    <script type="text/javascript" src="/js/lib/imagesloaded.js"></script>
+    <script type="text/javascript" src="/js/minicart.js"></script>
+    <script type="text/javascript" src="/js/thuvien_common.js"></script>
+    <script type="text/javascript" src="/jcarousellite/js/jquery.jcarousellite.js"></script>
+    <script type="text/javascript" src="/jcarousellite/js/jquery.easing-1.3.js"></script>
+    <script type="text/javascript" src="/jcarousellite/js/jquery.mousewheel-3.1.12.js"></script>
+    <script type="text/javascript" src="/bxslider/jquery.bxslider.min.js"></script>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,700,600"/>
     <!--[if (gte IE 9) | (IEMobile)]><!-->
 
