@@ -15,12 +15,15 @@ use Illuminate\Support\Facades\Password;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route:get('/clear-cache', function(){
+    $exitCode = Artisan::call('cache.clear');
+});
 
 Route::get('/', function () {
-    return view('category.category_content');
+    return view('tpddcs.category_content');
 }); 
 Route::get('homepage/index', 'IndexController@getList')->name('homepage.index');
-Route::get('category/100','tpddcController@index')->name('category.100');
+Route::get('tpddcs/100','tpddcController@find_book')->name('tpddcs.100');
 Route::get('book/book','BookController@index')->name('book.book');
 
 // Auth::routes();
@@ -61,16 +64,31 @@ Route::post('reset-password', 'ResetPasswordController@sendMail');
 Route::put('reset-password/{token}', 'ResetPasswordController@reset')->name('reset-password');
 
 //Author
-## View 
-Route::get('/authors', 'AuthorsController@index')->name('author');
+    ## View 
+    Route::get('/authors', 'AuthorsController@index')->name('author');
 
-## Create
-Route::get('/authors/create', 'AuthorsController@add')->name('author.create');
-Route::post('/authors/store', 'AuthorsController@store')->name('author.store');
+    ## Create
+    Route::get('/authors/create', 'AuthorsController@add')->name('author.create');
+    Route::post('/authors/store', 'AuthorsController@store')->name('author.store');
 
-## Update
-Route::get('/authors/store/{id}', 'AuthorsController@edit')->name('author.edit');
-Route::post('/authors/update/{id}', 'AuthorsController@update')->name('author.update');
+    ## Update
+    Route::get('/authors/store/{id}', 'AuthorsController@edit')->name('author.edit');
+    Route::post('/authors/update/{id}', 'AuthorsController@update')->name('author.update');
 
-## Delete
-Route::get('/authors/delete/{id}', 'AuthorsController@destroy')->name('author.delete');
+    ## Delete
+    Route::get('/authors/delete/{id}', 'AuthorsController@destroy')->name('author.delete');
+
+// Tpddc
+    ## View 
+    Route::get('/tpddcs', 'tpddcController@index')->name('tpddcs');
+
+    ## Create
+    Route::get('/tpddcs/create', 'tpddcController@add')->name('tpddcs.create');
+    Route::post('/tpddcs/store', 'tpddcController@store')->name('tpddcs.store');
+
+    ## Update
+    Route::get('/tpddcs/store/{id}', 'tpddcController@edit')->name('tpddcs.edit');
+    Route::post('/tpddcs/update/{id}', 'tpddcController@update')->name('tpddcs.update');
+
+    ## Delete
+    Route::get('/tpddcs/delete/{id}', 'tpddcController@destroy')->name('tpddcs.delete');

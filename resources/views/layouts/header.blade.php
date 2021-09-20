@@ -20,19 +20,19 @@
                 <li class="dropdown"><a href="#"><span>Danh mục sách</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                       <li>
-                        <a href="{{route('category.100')}}">100- Triết học-Tâm lý học</a>
+                        <a href="{{route('tpddcs.100')}}">100- Triết học-Tâm lý học</a>
                     </li>
                     <li>
-                        <a href="{{route('homepage.index')}}">200- Tôn giáo</a>
+                        <a href="{{route('tpddcs')}}">200- Tôn giáo</a>
                     </li>
                     <li>
-                        <a href="{{route('homepage.index')}}">300- Khoa học Xã hội</a>
+                        <a href="{{route('tpddcs')}}">300- Khoa học Xã hội</a>
                     </li>
                     <li>
-                        <a href="{{route('homepage.index')}}">400- Ngôn ngữ học</a>
+                        <a href="{{route('tpddcs')}}">400- Ngôn ngữ học</a>
                     </li>
                     <li>
-                        <a href="{{route('homepage.index')}}">500- KHTN-Toán học</a>
+                        <a href="{{route('tpddcs')}}">500- KHTN-Toán học</a>
                     </li>
                 </ul>
             </li>
@@ -110,7 +110,7 @@
                         <div class="dropdown-menu  container">
                             <ul id='menu'>
                                 <li>
-                                    <a href="{{route('category.100')}}">100- Triết học-Tâm lý học</a>
+                                    <a href="{{route('tpddcs.100')}}">100- Triết học-Tâm lý học</a>
                                 </li>
                                 <li>
                                     <a href="{{route('homepage.index')}}">200- Tôn giáo</a>

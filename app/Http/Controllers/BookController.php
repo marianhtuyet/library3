@@ -89,11 +89,11 @@ class BookController extends Controller
         $books = DB::table('books')
         ->join('author_books', 'author_books.book_id', '=', 'books.id')
         ->join('authors', 'authors.id', '=', 'author_books.author_id')
-        ->join('tpddc', 'books.ddc_id', '=', 'tpddc.id')
+        ->join('tpddcs', 'books.ddc_id', '=', 'tpddcs.id')
         ->join('language_books', 'language_books.id', '=', 'books.language_id')
         ->join('publishers', 'publishers.id', '=', 'books.publishing_company_id')
         ->join('status_books', 'status_books.id', '=', 'books.status_id')
-        ->select( 'authors.name as author_name', 'tpddc.ddc_name', 'language_books.name as language_name', 'publishers.name as publishers_name', 'status_books.name as status_name', 'books.*')
+        ->select( 'authors.name as author_name', 'tpddcs.ddc_name', 'language_books.name as language_name', 'publishers.name as publishers_name', 'status_books.name as status_name', 'books.*')
         ->where('books.id',$id)
         ->get();
         return view('book.book', compact('books'));

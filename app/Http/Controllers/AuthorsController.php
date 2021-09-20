@@ -47,13 +47,10 @@ class AuthorsController extends Controller
       if($record = $this->create($request->all())){
          Session::flash('message', 'Tạo tác giả thành công!');
          Session::flash('alert-class', 'alert-success');
-         // Session::flash('success', 'Tạo tác giả thành công!');
          return redirect()->route('author');
       }else{
          Session::flash('message', 'Cập nhật tác giả thất bại!');
          Session::flash('alert-class', 'alert-danger');
-         // Session::flash('error', 'Tạo tác giả thất bại!');
-
       }
 
       return Back();

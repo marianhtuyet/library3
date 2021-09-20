@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Tpddc extends Migration
+class Tpddcs extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Tpddc extends Migration
      */
     public function up()
     {
-        Schema::create('tpddc', function (Blueprint $table) {
+        Schema::create('tpddcs', function (Blueprint $table) {
             $table->id();
             $table->integer('ddc');
             $table->string('ddc_name');
@@ -28,6 +28,6 @@ class Tpddc extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tpddc');
+        Schema::dropIfExists('tpddcs');
     }
 }
