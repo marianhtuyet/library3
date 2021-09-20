@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Password;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route:get('/clear-cache', function(){
-    $exitCode = Artisan::call('cache.clear');
-});
+
 
 Route::get('/', function () {
     return view('tpddcs.category_content');
@@ -92,3 +90,64 @@ Route::put('reset-password/{token}', 'ResetPasswordController@reset')->name('res
 
     ## Delete
     Route::get('/tpddcs/delete/{id}', 'tpddcController@destroy')->name('tpddcs.delete');
+//Type book
+    ## View 
+    Route::get('/type_books', 'typeBookController@index')->name('type_books');
+
+    ## Create
+    Route::get('/type_books/create', 'typeBookController@add')->name('type_books.create');
+    Route::post('/type_books/store', 'typeBookController@store')->name('type_books.store');
+
+    ## Update
+    Route::get('/type_books/store/{id}', 'typeBookController@edit')->name('type_books.edit');
+    Route::post('/type_books/update/{id}', 'typeBookController@update')->name('type_books.update');
+
+    ## Delete
+    Route::get('/type_books/delete/{id}', 'typeBookController@destroy')->name('type_books.delete');
+
+//Language
+    ## View 
+    Route::get('/language_books', 'languageBookController@index')->name('language_books');
+
+    ## Create
+    Route::get('/language_books/create', 'languageBookController@add')->name('language_books.create');
+    Route::post('/language_books/store', 'languageBookController@store')->name('language_books.store');
+
+    ## Update
+    Route::get('/language_books/store/{id}', 'languageBookController@edit')->name('language_books.edit');
+    Route::post('/language_books/update/{id}', 'languageBookController@update')->name('language_books.update');
+
+    ## Delete
+    Route::get('/language_books/delete/{id}', 'languageBookController@destroy')->name('language_books.delete');
+
+//Publisher
+    ## View 
+    Route::get('/publishers', 'publishersController@index')->name('publishers');
+
+    ## Create
+    Route::get('/publishers/create', 'publishersController@add')->name('publishers.create');
+    Route::post('/publishers/store', 'publishersController@store')->name('publishers.store');
+
+    ## Update
+    Route::get('/publishers/store/{id}', 'publishersController@edit')->name('publishers.edit');
+    Route::post('/publishers/update/{id}', 'publishersController@update')->name('publishers.update');
+
+    ## Delete
+    Route::get('/publishers/delete/{id}', 'publishersController@destroy')->name('publishers.delete');
+
+//Status book
+    ## View 
+    Route::get('/status_books', 'statusController@index')->name('status_books');
+
+    ## Create
+    Route::get('/status_books/create', 'statusController@add')->name('status_books.create');
+    Route::post('/status_books/store', 'statusController@store')->name('status_books.store');
+
+    ## Update
+    Route::get('/status_books/store/{id}', 'statusController@edit')->name('status_books.edit');
+    Route::post('/status_books/update/{id}', 'statusController@update')->name('status_books.update');
+
+    ## Delete
+    Route::get('/status_books/delete/{id}', 'statusController@destroy')->name('status_books.delete');
+
+
