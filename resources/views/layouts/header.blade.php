@@ -57,13 +57,13 @@
                         </select>
 
                         <input type="email" name="email"  placeholder="Từ khóa cần tìm">
-      
-                <input type="submit" value="Search">
-                  
-                </div>
 
-                <!-- <div id="search_autocomplete" class="search-autocomplete"></div> -->
-                <script type="text/javascript">
+                        <input type="submit" value="Search">
+
+                    </div>
+
+                    <!-- <div id="search_autocomplete" class="search-autocomplete"></div> -->
+                    <script type="text/javascript">
                                     //<![CDATA[
                                     var searchForm = new Varien.searchForm('search_mini_form', 'search', '');
                                     searchForm.initAutocomplete('index.php/catalogsearch/ajax/suggest/index.html', 'search_autocomplete');
@@ -80,12 +80,12 @@
                         // <a class="nav-link scrollto"  href="/">'.(Auth::user()->name).'</a>
                         echo '<li class="dropdown"><a href="#"><span>'.(Auth::user()->name).'</span> <i class="bi bi-chevron-down"></i></a> 
                         <ul>
-                            <li>
-                                <a href="">Profile</a>
-                            </li>
-                            <li>
-                                <a href="'.route('logout').'">Log out</a>
-                            </li>
+                        <li>
+                        <a href="">Profile</a>
+                        </li>
+                        <li>
+                        <a href="'.route('logout').'">Log out</a>
+                        </li>
                         </ul>
                         </li>';
                     }
@@ -94,12 +94,40 @@
                         echo '<li><a class="nav-link scrollto" href="'.route('register').'">Sign up</a></li>';
                     }
                     ?>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
+
+                    <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                          <li>
+                            <a href="{{route('author')}}">Tác giả, dịch giả</a>
+                        </li>
+                        <li>
+                            <a href="{{route('language_books')}}">Ngôn ngữ</a>
+                        </li>
+                        <li>
+                            <a href="{{route('publishers')}}">Nhà xuất bản</a>
+                        </li>
+                        <li>
+                            <a href="{{route('status_books')}}">Trạng thái</a>
+                        </li>
+                        <li>
+                            <a href="{{route('tpddcs')}}">DDC</a>
+
+                        </li>
+                        <li>
+                            <a href="{{route('type_books')}}">Loại sách</a>
+                        </li>
+                         
+                           <li>
+                            <a href="/">Quản lý sách</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
 
 
-            <!-- Search -->
+        <!-- Search -->
   <!--           <div class="search-categories container">
                 <div class="top-search-categories container">
                     <div class="top-categories">

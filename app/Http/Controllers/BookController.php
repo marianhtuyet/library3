@@ -87,8 +87,7 @@ class BookController extends Controller
     }
     public function getBookInfo($id){
         $books = DB::table('books')
-        ->join('author_books', 'author_books.book_id', '=', 'books.id')
-        ->join('authors', 'authors.id', '=', 'author_books.author_id')
+        ->join('authors', 'authors.id', '=', 'book.author_id')
         ->join('tpddcs', 'books.ddc_id', '=', 'tpddcs.id')
         ->join('language_books', 'language_books.id', '=', 'books.language_id')
         ->join('publishers', 'publishers.id', '=', 'books.publishing_company_id')
@@ -98,6 +97,7 @@ class BookController extends Controller
         ->get();
         return view('book.book', compact('books'));
     }
+     // ->join('author_books', 'author_books.book_id', '=', 'books.id')
 
 }
 
