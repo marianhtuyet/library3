@@ -149,5 +149,9 @@ Route::put('reset-password/{token}', 'ResetPasswordController@reset')->name('res
 
     ## Delete
     Route::get('/status_books/delete/{id}', 'statusController@destroy')->name('status_books.delete');
-
+//Text image
+    Route::get('/test_images/upload', 'testImageController@upload')->name('test_images.upload');
+        ## Create
+    Route::get('/test_images/create', 'testImageController@add')->name('test_images.create');
+    Route::post('/test_images/store', 'testImageController@store')->name('test_images.store');
 

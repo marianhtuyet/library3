@@ -9,12 +9,8 @@
             <div class="title">
                 <h3>Add type_books</h3>
             </div>
-
-
             <div class="row">
-
                 <div class="col-md-12 col-sm-12 col-xs-12">
-
                     <!-- Alert message (start) -->
                     @if(Session::has('message'))
                     <div class="alert {{ Session::get('alert-class') }}">
@@ -24,9 +20,7 @@
                     <!-- Alert message (end) -->
 
                     <div class="actionbutton">
-
                         <a class='btn btn-info float-right' href="{{route('type_books')}}">List</a>
-
                     </div>
 
                     <form action="{{route('type_books.store')}}" method="post" id="type_booksForm">
