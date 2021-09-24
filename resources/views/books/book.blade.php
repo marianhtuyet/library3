@@ -10,7 +10,7 @@
             <div class="product-view" xmlns="http://www.w3.org/1999/html">
                 <div class="breadcrumbs">
                     <ul>
-                        <li><a href="{{route('book.book')}}">Trang chủ</a></li>
+                        <li><a href="{{route('books.book')}}">Trang chủ</a></li>
                         <!--<li><a href="">Học viện Đa Minh</a></li>-->
                         <li><a href="">{{$book->name}}</a></li>
                     </ul>

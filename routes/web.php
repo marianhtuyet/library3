@@ -22,7 +22,7 @@ Route::get('/', function () {
 }); 
 Route::get('homepage/index', 'IndexController@getList')->name('homepage.index');
 Route::get('tpddcs/100','tpddcController@find_book')->name('tpddcs.100');
-Route::get('book/book','BookController@index')->name('book.book');
+Route::get('books/book','BookController@index')->name('books.book');
 
 // Auth::routes();
 
@@ -149,9 +149,23 @@ Route::put('reset-password/{token}', 'ResetPasswordController@reset')->name('res
 
     ## Delete
     Route::get('/status_books/delete/{id}', 'statusController@destroy')->name('status_books.delete');
-//Text image
+//Test image
     Route::get('/test_images/upload', 'testImageController@upload')->name('test_images.upload');
         ## Create
     Route::get('/test_images/create', 'testImageController@add')->name('test_images.create');
     Route::post('/test_images/store', 'testImageController@store')->name('test_images.store');
 
+//Book management
+    ## View 
+    Route::get('/books', 'BookController@index')->name('books');
+
+    ## Create
+    Route::get('/books/create', 'BookController@add')->name('books.create');
+    Route::post('/books/store', 'BookController@store')->name('books.store');
+
+    ## Update
+    Route::get('/books/store/{id}', 'BookController@edit')->name('books.edit');
+    Route::post('/books/update/{id}', 'BookController@update')->name('books.update');
+
+    ## Delete
+    Route::get('/books/delete/{id}', 'BookController@destroy')->name('books.delete');
