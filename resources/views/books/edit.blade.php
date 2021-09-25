@@ -31,8 +31,18 @@
 
                 </div>
 
-                <form action="{{route('books.update',[$books->id])}}" method="post" >
+                <form action="{{route('books.update',[$books->id])}}" enctype="multipart/form-data" method="post" >
                     {{csrf_field()}}
+                     <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                        </label>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <img src=" {{ $books->img_src}}" alt=" hình ảnh" width="600" height="500">
+                             <input type="file" name="img_src" />
+                           
+                        </div>
+                    </div> 
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
                         </label>

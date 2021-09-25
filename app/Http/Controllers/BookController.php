@@ -52,7 +52,7 @@ class BookController extends Controller
         return view('books.create')->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
             => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books]);
     }
-    public function create(array $data)
+    public function create(array $data, $reImage)
     {
         return Book::create([
          'name' => $data['book_name'],
@@ -71,7 +71,8 @@ class BookController extends Controller
          'page_number' => $data['page_number'],
          'input_date' => $data['input_date'],
          'cost' => $data['cost'],
-         'status_id' => $data['status_id']
+         'status_id' => $data['status_id'],
+         'img_src' => $reImage,
      ]);
     }
 
@@ -91,8 +92,16 @@ class BookController extends Controller
         if ($validator->fails()) {
            return redirect()->Back()->withInput()->withErrors($validator);
        }
-
-       if($record = $this->create($request->all())){
+        $dest = public_path('assets/img/');
+        $reImage = '';
+       if($request->has('img_src')){
+        $image = $request->img_src;
+        $reImage = time().'.'.$image->getClientOriginalExtension();
+        $dest = public_path('assets/img/');
+        $image->move($dest, $reImage);
+    
+    }
+       if($record = $this->create($request->except('img_src'), $dest.$reImage)){
            Session::flash('message', 'Tạo sách thành công!');
            Session::flash('alert-class', 'alert-success');
            $type_books = type_books::select('id', 'name')->get();
@@ -112,23 +121,7 @@ class BookController extends Controller
        return Back();
    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Book $book)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
-     */
+  
     public function edit($id)
     {
 
@@ -154,8 +147,8 @@ class BookController extends Controller
      */
     public function update(Request $request,$id)
     {
-
-       $data = $request->except('_method','_token','submit');
+        
+       $data = $request->except('_method','_token','submit', 'img_src');
 
        $validator = Validator::make($request->all(), [
            'name' => 'required|string|min:3',
@@ -165,6 +158,18 @@ class BookController extends Controller
            return redirect()->Back()->withInput()->withErrors($validator);
        }
        $books = Book::find($id);
+        $dest = public_path('assets/img/');
+        $reImage = '';
+       if($request->has('img_src')){
+        $image = $request->img_src;
+        $reImage = time().'.'.$image->getClientOriginalExtension();
+        $dest = public_path('assets/img/');
+        $image->move($dest, $reImage);
+
+        $data = array_merge($data, ['img_src' =>'/assets/img/'.$reImage]);
+
+        }
+       
 
        if($books->update($data)){
            Session::flash('message', 'Cập nhật sách thành công!');

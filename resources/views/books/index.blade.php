@@ -32,7 +32,7 @@
                                 <th width='20%'>Name</th>
                                 <th width='20%'>Author</th>
                                 <th width='20'>Publisher</th>
-                                <th width='10%'>DDC</th>
+                                <th width='10%'>Image</th>
                                 <th width='10%'>Status</th>
                                 <th width='20%'>Actions</th>
                             </tr>
@@ -43,7 +43,7 @@
                                 <td>{{ $book->name }}</td>
                                 <td>{{ $book->author_name}}</td>
                                 <td>{{ $book->publishers_name}}</td>
-                                <td>{{ $book->ddc_name}}</td>
+                                <td><img src=" {{ $book->img_src}}" alt=" hình ảnh" width="100" height="100"></td>
                                 <td>{{ $book->status_name}}</td>
                                 <td>
                                     <!-- Edit -->

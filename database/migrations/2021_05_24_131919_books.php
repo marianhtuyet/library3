@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Books extends Migration
+class Book extends Migration
 {
     /**
      * Run the migrations.
@@ -34,7 +34,7 @@ class Books extends Migration
             $table->float('cost');
             $table->integer('unit_id');
             $table->integer('status_id');
-            $table->longText('file_data');
+            $table->string('img_src');
             $table->string('format_book');
             $table->timestamps();
         });

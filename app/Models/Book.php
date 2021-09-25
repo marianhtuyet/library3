@@ -25,6 +25,7 @@ class Book extends Model
         'page_number',
         'input_date',
         'cost',
-        'status_id'
+        'status_id',
+        'img_src'
     ];
 }

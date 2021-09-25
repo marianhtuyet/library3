@@ -118,7 +118,7 @@
                         </li>
                          
                            <li>
-                            <a href="/">Quản lý sách</a>
+                            <a href="{{route('books')}}">Quản lý sách</a>
                         </li>
                     </ul>
                 </li>

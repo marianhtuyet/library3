@@ -45,6 +45,18 @@
                         </div>
 
                         <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="img_src">Image
+                                </label>
+                                
+                                <input type="file" name="img_src" />
+
+                                @if ($errors->has('img_src'))
+                                <span class="errormsg">{{ $errors->first('img_src') }}</span>
+                                @endif
+                            </div>
+
+                        <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="original">Nguyên tác <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
