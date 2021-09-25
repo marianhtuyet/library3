@@ -29,13 +29,66 @@ class tpddcController extends Controller
         ->join('books', 'books.ddc_id', '=', 'tpddcs.id')
         ->join('author_books', 'author_books.book_id', '=', 'books.id')
         ->join('authors', 'authors.id', '=', 'author_books.author_id')
-        ->where([['tpddcs.ddc','>=', 100], ['tpddcs.ddc', '<', 300]])
+        ->where([['tpddcs.ddc','>', 0], ['tpddcs.ddc', '<=', 100]])
         ->select( 'authors.name as author_name', 'books.*')
         ->orderBy('tpddcs.ddc', 'ASC')
         ->get();
 
         return view('tpddcs.100')->with('books',$tpddcs);
     }
+    public function find_book_200() {
+      
+        $tpddcs = DB::table('tpddcs')
+        ->join('books', 'books.ddc_id', '=', 'tpddcs.id')
+        ->join('author_books', 'author_books.book_id', '=', 'books.id')
+        ->join('authors', 'authors.id', '=', 'author_books.author_id')
+        ->where([['tpddcs.ddc','>', 100], ['tpddcs.ddc', '<=', 200]])
+        ->select( 'authors.name as author_name', 'books.*')
+        ->orderBy('tpddcs.ddc', 'ASC')
+        ->get();
+
+        return view('tpddcs.100')->with('books',$tpddcs);
+    }
+    public function find_book_300() {
+      
+        $tpddcs = DB::table('tpddcs')
+        ->join('books', 'books.ddc_id', '=', 'tpddcs.id')
+        ->join('author_books', 'author_books.book_id', '=', 'books.id')
+        ->join('authors', 'authors.id', '=', 'author_books.author_id')
+        ->where([['tpddcs.ddc','>', 200], ['tpddcs.ddc', '<=', 300]])
+        ->select( 'authors.name as author_name', 'books.*')
+        ->orderBy('tpddcs.ddc', 'ASC')
+        ->get();
+
+        return view('tpddcs.100')->with('books',$tpddcs);
+    }
+      public function find_book_400() {
+      
+        $tpddcs = DB::table('tpddcs')
+        ->join('books', 'books.ddc_id', '=', 'tpddcs.id')
+        ->join('author_books', 'author_books.book_id', '=', 'books.id')
+        ->join('authors', 'authors.id', '=', 'author_books.author_id')
+        ->where([['tpddcs.ddc','>', 300], ['tpddcs.ddc', '<=', 400]])
+        ->select( 'authors.name as author_name', 'books.*')
+        ->orderBy('tpddcs.ddc', 'ASC')
+        ->get();
+
+        return view('tpddcs.100')->with('books',$tpddcs);
+    }
+      public function find_book_500() {
+      
+        $tpddcs = DB::table('tpddcs')
+        ->join('books', 'books.ddc_id', '=', 'tpddcs.id')
+        ->join('author_books', 'author_books.book_id', '=', 'books.id')
+        ->join('authors', 'authors.id', '=', 'author_books.author_id')
+        ->where([['tpddcs.ddc','>', 400], ['tpddcs.ddc', '<=', 500]])
+        ->select( 'authors.name as author_name', 'books.*')
+        ->orderBy('tpddcs.ddc', 'ASC')
+        ->get();
+
+        return view('tpddcs.100')->with('books',$tpddcs);
+    }
+
 
     /**
      * Show the form for creating a new resource.

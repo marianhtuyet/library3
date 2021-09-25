@@ -21,7 +21,12 @@ Route::get('/', function () {
     return view('tpddcs.category_content');
 }); 
 Route::get('homepage/index', 'IndexController@getList')->name('homepage.index');
+
 Route::get('tpddcs/100','tpddcController@find_book')->name('tpddcs.100');
+Route::get('tpddcs/200','tpddcController@find_book_200')->name('tpddcs.200');
+Route::get('tpddcs/300','tpddcController@find_book_300')->name('tpddcs.300');
+Route::get('tpddcs/400','tpddcController@find_book_400')->name('tpddcs.400');
+Route::get('tpddcs/500','tpddcController@find_book_500')->name('tpddcs.500');
 Route::get('books/book','BookController@index')->name('books.book');
 
 // Auth::routes();
