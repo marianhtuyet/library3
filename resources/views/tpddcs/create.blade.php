@@ -47,7 +47,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ddc">DDC</label>
-                                <input type="number" name="ddc" step="0.01">
+                                <input type="number" name="ddc" step="0.00000000000000000001">
                                 @if ($errors->has('ddc'))
                                 <span class="errormsg">{{ $errors->first('ddc') }}</span>
                                 @endif

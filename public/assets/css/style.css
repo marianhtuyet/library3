@@ -138,9 +138,11 @@ noscript{
     background-color: #D2D3D5;
     color: #0000ff;
 }
-#search_mini_form select{
+/*#search_mini_form select{
     height: 40px;
+    width: 50%;
     min-width: 150px;
+    background-color: black;
     border: 1px solid #cccccc;
     padding-left: 10px;
 }
@@ -148,10 +150,15 @@ noscript{
     height: 30px;
     line-height: 30px;
 }
+*/
+#select_search_bar {
+  /*padding-left: 60px;*/
+  margin-right: 10 px;
+}
 #search {
     height: 40px;
     margin-left: -5px;
-    width: calc(100% - 168px);
+    /*width: calc(100% - 168px);*/
     border: 1px solid #cccccc;
     padding-left: 20px;
 }
@@ -160,7 +167,7 @@ noscript{
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
-    background: #D2D3D5;
+    background: #000;
     border: 1px solid #cccccc;
     border-right: none;
     font-size: 14px;
@@ -168,6 +175,7 @@ noscript{
     margin-left: -104px;
     padding:0 20px;
     width: 100px;
+    color: #fff;
     border-radius: 0px 5px 5px 0;
     cursor: pointer;
     margin-top: 5px;

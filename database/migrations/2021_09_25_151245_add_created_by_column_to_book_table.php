@@ -13,8 +13,8 @@ class AddCreatedByColumnToBookTable extends Migration
      */
     public function up()
     {
-        Schema::table('book', function (Blueprint $table) {
-            //
+        Schema::table('books', function (Blueprint $table) {
+            
         });
     }
 
