@@ -11,7 +11,7 @@ class typeBookController extends Controller
 {
      public function index(){
       $type_books = type_books::select('id','name')
-      ->orderBy('id', 'DESC')->get();
+      ->orderBy('name', 'ASC')->get();
       return view('type_books.index')->with('type_books',$type_books);
    }
 

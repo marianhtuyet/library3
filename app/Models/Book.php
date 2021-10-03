@@ -26,6 +26,21 @@ class Book extends Model
         'input_date',
         'cost',
         'status_id',
-        'img_src'
+        'img_src',
+        'author_ids',
+
     ];
+    public function setAuthorAttribute($value)
+    {
+        $this->attributes['author_ids'] = json_encode($value);
+    }
+  
+    /**
+     * Get the categories
+     *
+     */
+    public function getAuthorAttribute($value)
+    {
+        return $this->attributes['author_ids'] = json_decode($value);
+    }
 }

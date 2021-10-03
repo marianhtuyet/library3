@@ -82,6 +82,15 @@
                     <li>
                         <a href="{{route('books')}}">Quản lý sách</a>
                     </li>
+                    <li>
+                        <a href="{{route('themes')}}">Quản lý chủ đề sách</a>
+                    </li>
+                    <li>
+                        <a href="{{route('sites')}}">Quản lý kho sách</a>
+                    </li>
+                    <li>
+                        <a href="{{route('quality_books')}}">Quản lý tình trạng sách</a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -100,7 +109,7 @@
                     <option value="sachbo">Sách bộ</option>
                 </select>
 
-      <input class="form-control mr-sm-2" style="width: 500px;" type="search" placeholder="Search" aria-label="Search">
+      <input class="form-control mr-sm-2" style="width: 400px;" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
     </form>
            <!-- 

@@ -41,7 +41,12 @@
                             @foreach($books as $book)
                             <tr>
                                 <td>{{ $book->name }}</td>
-                                <td>{{ $book->author_name}}</td>
+                                <td>
+                                    @foreach($authors as $author)
+                                    {{ (in_array($author->id, json_decode($book->author_ids))) ? $author->name.',' : ''  }}
+
+                                    @endforeach
+                            </td>
                                 <td>{{ $book->publishers_name}}</td>
                                 <td><img src=" {{ $book->img_src}}" alt=" hình ảnh" width="100" height="100"></td>
                                 <td>{{ $book->status_name}}</td>

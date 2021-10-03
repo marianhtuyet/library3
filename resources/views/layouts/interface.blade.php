@@ -7,10 +7,10 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
     <link rel="stylesheet" type="text/css" href="/assets/css/style-demo.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" media="all"/>
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css" media="all"/>
@@ -57,17 +57,29 @@
     <script type="text/javascript" src="/jcarousellite/js/jquery.easing-1.3.js"></script>
     <script type="text/javascript" src="/jcarousellite/js/jquery.mousewheel-3.1.12.js"></script>
     <script type="text/javascript" src="/bxslider/jquery.bxslider.min.js"></script>
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,700,600"/>
-    <!--[if (gte IE 9) | (IEMobile)]><!-->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,700,600"/> 
+<!-- Bootstrap for selected -->
+<!--     <link href="/assets/bootstrap-select-1.13.0-beta/css/bootstrap-select.css" rel="stylesheet">
+    <link href="/assets/bootstrap-select-1.13.0-beta/css/bootstrap-select.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/assets/bootstrap-select-1.13.0-beta/js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="/assets/bootstrap-select-1.13.0-beta/js/bootstrap-select.min.js"></script>
+ -->
+<!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 
-        <!--<![endif]-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
 
-            {{--    <script type="text/javascript">--}}
-    {{--        //<![CDATA[--}}
-    {{--        Mage.Cookies.path     = 'index.html';--}}
-    {{--        Mage.Cookies.domain   = '.thuviendaminh.net';--}}
-    {{--        //]]>--}}
-{{--    </script>--}}
+<script>jQuery.noConflict();</script>
+    
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+   
+
+  
 <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
 
 <script type="text/javascript">

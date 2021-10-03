@@ -24,17 +24,21 @@ class BookController extends Controller
      */
     public function index()
     {
-       $books = DB::table('books')
-       ->join('authors', 'authors.id', '=', 'books.author_id')
-       ->join('tpddcs', 'books.ddc_id', '=', 'tpddcs.id')
-       ->join('language_books', 'language_books.id', '=', 'books.language_id')
-       ->join('publishers', 'publishers.id', '=', 'books.publishing_company_id')
-       ->join('status_books', 'status_books.id', '=', 'books.status_id')
-       ->select( 'authors.name as author_name', 'tpddcs.ddc_name', 'language_books.name as language_name', 'publishers.name as publishers_name', 'status_books.name as status_name', 'books.*')
-       ->orderBy('id', 'DESC')->get();
-       return view('books.index', compact('books'));
+     $books = DB::table('books')
+     ->leftJoin('authors', 'authors.id', '=', 'books.author_id')
+     ->join('tpddcs', 'books.ddc_id', '=', 'tpddcs.id')
+     ->join('language_books', 'language_books.id', '=', 'books.language_id')
+     ->join('publishers', 'publishers.id', '=', 'books.publishing_company_id')
+     ->join('status_books', 'status_books.id', '=', 'books.status_id')
+     ->select( 'authors.name as author_name', 'tpddcs.ddc_name', 'language_books.name as language_name', 'publishers.name as publishers_name', 'status_books.name as status_name', 'books.*')
 
-   }
+     ->orderBy('name', 'DESC')->get();
+     $authors = Authors::select('id', 'name')->get();
+     
+
+     return view('books.index')->with(['books' => $books, 'authors' => $authors]);
+
+ }
 
     /**
      * Show the form for creating a new resource.
@@ -55,25 +59,25 @@ class BookController extends Controller
     public function create(array $data, $reImage)
     {
         return Book::create([
-         'name' => $data['book_name'],
-         'original' => $data['original'],
-         'temporary_content' => $data['temporary_content'],
-         'type_book_id' => $data['type_book_id'],
-         'language_id' => $data['language_id'],
-         'ddc_id' => $data['ddc_id'],
-         'author_id' => $data['author_id'],
-         'chapter' => $data['chapter'],
-         'summary' => $data['summary'],
-         'series' => $data['series'],
-         'publishing_company_id' => $data['publishing_company_id'],
-         'republishing' => $data['republishing'],
-         'year_publishing' => $data['year_publishing'],
-         'page_number' => $data['page_number'],
-         'input_date' => $data['input_date'],
-         'cost' => $data['cost'],
-         'status_id' => $data['status_id'],
-         'img_src' => $reImage,
-     ]);
+           'name' => $data['book_name'],
+           'original' => $data['original'],
+           'temporary_content' => $data['temporary_content'],
+           'type_book_id' => $data['type_book_id'],
+           'language_id' => $data['language_id'],
+           'ddc_id' => $data['ddc_id'],
+           'chapter' => $data['chapter'],
+           'summary' => $data['summary'],
+           'series' => $data['series'],
+           'publishing_company_id' => $data['publishing_company_id'],
+           'republishing' => $data['republishing'],
+           'year_publishing' => $data['year_publishing'],
+           'page_number' => $data['page_number'],
+           'input_date' => $data['input_date'],
+           'cost' => $data['cost'],
+           'status_id' => $data['status_id'],
+           'img_src' => $reImage,
+           'author_ids' => json_encode($data['author_ids']),
+       ]);
     }
 
     /**
@@ -86,57 +90,59 @@ class BookController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-           'book_name' => 'required|string|min:3',
-       ]);
+         'book_name' => 'required|string|min:3',
+     ]);
 
         if ($validator->fails()) {
-           return redirect()->Back()->withInput()->withErrors($validator);
-       }
-        $dest = public_path('assets/img/');
-        $reImage = '';
-       if($request->has('img_src')){
+         return redirect()->Back()->withInput()->withErrors($validator);
+     }
+     $dest = public_path('assets/img/');
+     $reImage = '';
+     if($request->has('img_src')){
         $image = $request->img_src;
         $reImage = time().'.'.$image->getClientOriginalExtension();
         $dest = public_path('assets/img/');
         $image->move($dest, $reImage);
-    
+
     }
-       if($record = $this->create($request->except('img_src'), $dest.$reImage)){
-           Session::flash('message', 'Tạo sách thành công!');
-           Session::flash('alert-class', 'alert-success');
-           $type_books = type_books::select('id', 'name')->get();
-           $language_books = language_books::select('id', 'name')->get();
-           $tpddcs = tpddcs::select('ddc', 'ddc_name')->get();
-           $authors = Authors::select('id', 'name')->get();
-           $publishers = publishers::select('id', 'name')->get();
-           $status_books = status_books::select('id', 'name')->get();
 
-           return redirect()->route('books')->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
-            => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books]);
-       }else{
-           Session::flash('message', 'Tạo sách thất bại!');
-           Session::flash('alert-class', 'alert-danger');
-       }
 
-       return Back();
-   }
+    if($record = $this->create($request->except('img_src'), $dest.$reImage)){
+     Session::flash('message', 'Tạo sách thành công!');
+     Session::flash('alert-class', 'alert-success');
+     $type_books = type_books::select('id', 'name')->get();
+     $language_books = language_books::select('id', 'name')->get();
+     $tpddcs = tpddcs::select('ddc', 'ddc_name')->get();
+     $authors = Authors::select('id', 'name')->get();
+     $publishers = publishers::select('id', 'name')->get();
+     $status_books = status_books::select('id', 'name')->get();
 
-  
-    public function edit($id)
-    {
+     return redirect()->route('books')->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
+        => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books]);
+ }else{
+     Session::flash('message', 'Tạo sách thất bại!');
+     Session::flash('alert-class', 'alert-danger');
+ }
 
-        $books = Book::find($id);
+ return Back();
+}
 
-        $type_books = type_books::select('id', 'name')->get();
-        $language_books = language_books::select('id', 'name')->get();
-        $tpddcs = tpddcs::select('id', 'ddc', 'ddc_name')->get();
-        $authors = Authors::select('id', 'name')->get();
-        $publishers = publishers::select('id', 'name')->get();
-        $status_books = status_books::select('id', 'name')->get();
 
-        return view('books.edit', )->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
-            => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'books'=> $books]);
-    }
+public function edit($id)
+{
+
+    $books = Book::find($id);
+
+    $type_books = type_books::select('id', 'name')->get();
+    $language_books = language_books::select('id', 'name')->get();
+    $tpddcs = tpddcs::select('id', 'ddc', 'ddc_name')->get();
+    $authors = Authors::select('id', 'name')->get();
+    $publishers = publishers::select('id', 'name')->get();
+    $status_books = status_books::select('id', 'name')->get();
+
+    return view('books.edit', )->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
+        => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'books'=> $books]);
+}
 
     /**
      * Update the specified resource in storage.
@@ -147,20 +153,20 @@ class BookController extends Controller
      */
     public function update(Request $request,$id)
     {
-        
-       $data = $request->except('_method','_token','submit', 'img_src');
 
-       $validator = Validator::make($request->all(), [
-           'name' => 'required|string|min:3',
-       ]);
+     $data = $request->except('_method','_token','submit', 'img_src');
 
-       if ($validator->fails()) {
-           return redirect()->Back()->withInput()->withErrors($validator);
-       }
-       $books = Book::find($id);
-        $dest = public_path('assets/img/');
-        $reImage = '';
-       if($request->has('img_src')){
+     $validator = Validator::make($request->all(), [
+         'name' => 'required|string|min:3',
+     ]);
+
+     if ($validator->fails()) {
+         return redirect()->Back()->withInput()->withErrors($validator);
+     }
+     $books = Book::find($id);
+     $dest = public_path('assets/img/');
+     $reImage = '';
+     if($request->has('img_src')){
         $image = $request->img_src;
         $reImage = time().'.'.$image->getClientOriginalExtension();
         $dest = public_path('assets/img/');
@@ -168,20 +174,20 @@ class BookController extends Controller
 
         $data = array_merge($data, ['img_src' =>'/assets/img/'.$reImage]);
 
-        }
-       
+    }
 
-       if($books->update($data)){
-           Session::flash('message', 'Cập nhật sách thành công!');
-           Session::flash('alert-class', 'alert-success');
-           return redirect()->route('books');
-       }else{
-           Session::flash('message', 'Cập nhật sách thất bại!');
-           Session::flash('alert-class', 'alert-danger');
-       }
 
-       return Back()->withInput();
-   }
+    if($books->update($data)){
+     Session::flash('message', 'Cập nhật sách thành công!');
+     Session::flash('alert-class', 'alert-success');
+     return redirect()->route('books');
+ }else{
+     Session::flash('message', 'Cập nhật sách thất bại!');
+     Session::flash('alert-class', 'alert-danger');
+ }
+
+ return Back()->withInput();
+}
 
     /**
      * Remove the specified resource from storage.
@@ -193,9 +199,9 @@ class BookController extends Controller
     {
         Book::destroy($id);
 
-      Session::flash('message', 'Xóa thành công!');
-      Session::flash('alert-class', 'alert-success');
-      return redirect()->route('books');
+        Session::flash('message', 'Xóa thành công!');
+        Session::flash('alert-class', 'alert-success');
+        return redirect()->route('books');
     }
     public function getBookInfo($id){
         $books = DB::table('books')

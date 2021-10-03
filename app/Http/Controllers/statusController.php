@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Validator;
 
 class statusController extends Controller
 {
-     public function index(){
+    public function index(){
       $status_books = status_books::select('id','name')
-      ->orderBy('id', 'DESC')->get();
+      ->orderBy('name', 'ASC')->get();
       return view('status_books.index')->with('status_books',$status_books);
    }
 
@@ -65,7 +65,7 @@ class statusController extends Controller
          return redirect()->Back()->withInput()->withErrors($validator);
       }
       $status_books = status_books::find($id);
-     
+      
       if($status_books->update($data)){
          Session::flash('message', 'Cập nhật trạng thái sách thành công!');
          Session::flash('alert-class', 'alert-success');
@@ -78,10 +78,9 @@ class statusController extends Controller
       return Back()->withInput();
    }
 
-   // Delete
+      // Delete
    public function destroy($id){
       status_books::destroy($id);
-
       Session::flash('message', 'Xóa thành công!');
       Session::flash('alert-class', 'alert-success');
       return redirect()->route('status_books');

@@ -11,7 +11,7 @@ class publishersController extends Controller
 {
     public function index(){
       $publishers = publishers::select('id','name')
-      ->orderBy('id', 'DESC')->get();
+      ->orderBy('name', 'ASC')->get();
       return view('publishers.index')->with('publishers',$publishers);
    }
 

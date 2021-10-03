@@ -174,3 +174,48 @@ Route::put('reset-password/{token}', 'ResetPasswordController@reset')->name('res
 
     ## Delete
     Route::get('/books/delete/{id}', 'BookController@destroy')->name('books.delete');
+
+
+//theme
+    ## View 
+    Route::get('/themes', 'themeController@index')->name('themes');
+
+    ## Create
+    Route::get('/themes/create', 'themeController@add')->name('themes.create');
+    Route::post('/themes/store', 'themeController@store')->name('themes.store');
+
+    ## Update
+    Route::get('/themes/store/{id}', 'themeController@edit')->name('themes.edit');
+    Route::post('/themes/update/{id}', 'themeController@update')->name('themes.update');
+
+    ## Delete
+    Route::get('/themes/delete/{id}', 'themeController@destroy')->name('themes.delete');
+//Site
+    ## View 
+    Route::get('/sites', 'sitesController@index')->name('sites');
+
+    ## Create
+    Route::get('/sites/create', 'sitesController@add')->name('sites.create');
+    Route::post('/sites/store', 'sitesController@store')->name('sites.store');
+
+    ## Update
+    Route::get('/sites/store/{id}', 'sitesController@edit')->name('sites.edit');
+    Route::post('/sites/update/{id}', 'sitesController@update')->name('sites.update');
+
+    ## Delete
+    Route::get('/sites/delete/{id}', 'sitesController@destroy')->name('sites.delete');
+
+//Quality
+    ## View 
+    Route::get('/quality_books', 'qualityBooksController@index')->name('quality_books');
+
+    ## Create
+    Route::get('/quality_books/create', 'qualityBooksController@add')->name('quality_books.create');
+    Route::post('/quality_books/store', 'qualityBooksController@store')->name('quality_books.store');
+
+    ## Update
+    Route::get('/quality_books/store/{id}', 'qualityBooksController@edit')->name('quality_books.edit');
+    Route::post('/quality_books/update/{id}', 'qualityBooksController@update')->name('quality_books.update');
+
+    ## Delete
+    Route::get('/quality_books/delete/{id}', 'qualityBooksController@destroy')->name('quality_books.delete');

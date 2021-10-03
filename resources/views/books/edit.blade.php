@@ -86,8 +86,6 @@
                                 <option value="{{ $type_book->id }}" <?php echo( $type_book->id == $books->type_book_id ? 'selected': '')?>>{{ $type_book->name }}</option>
                                 @endforeach
                             </select>
-                            
-
                         </div>
                     </div>
 
@@ -119,12 +117,20 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="author_id">Tác giả <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                         <select class="form-control " name="author_id">
-                            @foreach($authors as $author)
-                            <option value="{{ $author->id }}" <?php echo( $author->id == $books->author_id ? 'selected': '')?>>{{ $author->name }}</option>
-                            @endforeach
-                        </select>
+                             <select class="selectpicker" multiple id="select_multi_author" name="author_ids[]" data-live-search="true" style="display: block;" onchange="refresh_list(this)">
+                          @foreach ($authors as $author)
+                          <option  <?php echo( in_array($author->id, json_decode($books->author_ids))  ? 'selected': '')?> value="{{ $author->id }}">{{ $author->name }}</option>       
+                          @endforeach
+                      </select>
+                      <script type="text/javascript">
+                        jQuery(document).ready(function(){
+                          jQuery('.selectpicker').selectpicker();
 
+                      }); 
+                        function refresh_list(obj){
+                             document.getElementsByClassName("bootstrap-select").style.display = "block";
+                        }
+                    </script>
                     </div>
                 </div>
 

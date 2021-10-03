@@ -11,7 +11,7 @@ class languageBookController extends Controller
 {
    public function index(){
       $language_books = language_books::select('id','name')
-      ->orderBy('id', 'DESC')->get();
+      ->orderBy('name', 'ASC')->get();
       return view('language_books.index')->with('language_books',$language_books);
    }
 

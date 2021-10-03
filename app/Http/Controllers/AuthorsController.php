@@ -12,7 +12,7 @@ class AuthorsController extends Controller
 {
    public function index(){
       $authors = Authors::select('id','name','is_translator')
-      ->orderBy('id', 'DESC')->get();
+      ->orderBy('name', 'ASC')->get();
       return view('author.index')->with('authors',$authors);
    }
 

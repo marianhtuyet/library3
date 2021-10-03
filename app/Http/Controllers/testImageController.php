@@ -15,7 +15,7 @@ class testImageController extends Controller
         $test_images = test_images::select('id', 'img_src', 'img_alt')
         ->join('authors', 'authors.id', '=', 'test_images.author_id')
         ->select('authors.name', 'test_images.*')
-        ->orderBy('id', 'DESC')->get();
+        ->orderBy('name', 'ASC')->get();
         return view('test_images.upload')->with(['test_images' => $test_images]);
     }
     public function add(){
