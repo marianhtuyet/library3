@@ -76,7 +76,7 @@
 
                     </li>
                     <li>
-                        <a href="{{route('type_books')}}">Loại sách</a>
+                        <a href="{{route('type_books')}}">Thể loại sách</a>
                     </li>
 
                     <li>

@@ -13,6 +13,9 @@ use App\Models\tpddcs;
 use App\Models\Authors;
 use App\Models\publishers;
 use App\Models\status_books;
+use App\Models\themes;
+use App\Models\sites;
+
 
 
 class BookController extends Controller
@@ -34,8 +37,6 @@ class BookController extends Controller
 
      ->orderBy('name', 'DESC')->get();
      $authors = Authors::select('id', 'name')->get();
-     
-
      return view('books.index')->with(['books' => $books, 'authors' => $authors]);
 
  }
@@ -53,30 +54,38 @@ class BookController extends Controller
         $authors = Authors::select('id', 'name')->get();
         $publishers = publishers::select('id', 'name')->get();
         $status_books = status_books::select('id', 'name')->get();
+        $themes = themes::select('id', 'name')->get();
+        $sites = sites::select('id', 'name')->get();
+        $translators = Authors::select('id', 'name')->where('is_translator', '=', 1)->get();
         return view('books.create')->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
-            => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books]);
+            => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators]);
     }
     public function create(array $data, $reImage)
     {
         return Book::create([
            'name' => $data['book_name'],
+           'subtitle'=>$data['subtitle'],
            'original' => $data['original'],
-           'temporary_content' => $data['temporary_content'],
-           'type_book_id' => $data['type_book_id'],
-           'language_id' => $data['language_id'],
-           'ddc_id' => $data['ddc_id'],
-           'chapter' => $data['chapter'],
-           'summary' => $data['summary'],
-           'series' => $data['series'],
-           'publishing_company_id' => $data['publishing_company_id'],
-           'republishing' => $data['republishing'],
-           'year_publishing' => $data['year_publishing'],
-           'page_number' => $data['page_number'],
-           'input_date' => $data['input_date'],
-           'cost' => $data['cost'],
-           'status_id' => $data['status_id'],
            'img_src' => $reImage,
            'author_ids' => json_encode($data['author_ids']),
+           'symbol_author'=>$data['symbol_author'],
+           'translator_ids'=>json_encode($data['translator_ids']),
+           'publishing_company_id' => $data['publishing_company_id'],
+           'year_publishing' => $data['year_publishing'],
+           'republishing' => $data['republishing'],
+           'page_number' => $data['page_number'],
+           'temporary_content' => $data['temporary_content'],
+           'series' => $data['series'],
+           'ddc_id' => $data['ddc_id'],
+           'theme_id'=>$data['theme_id'],
+           'summary' => $data['summary'],
+           'language_id' => $data['language_id'],
+            'input_date' => $data['input_date'],
+           'type_book_id' => $data['type_book_id'],
+           'cost' => $data['cost'],
+           'site_id'=> $data['site_id'],
+           'status_id' => $data['status_id'],
+           'quantity' => $data['quantity'],
        ]);
     }
 
@@ -116,9 +125,12 @@ class BookController extends Controller
      $authors = Authors::select('id', 'name')->get();
      $publishers = publishers::select('id', 'name')->get();
      $status_books = status_books::select('id', 'name')->get();
+     $themes = themes::select('id', 'name')->get();
+     $sites = sites::select('id', 'name')->get();
+     $translators = Authors::select('id', 'name')->where('is_translator', '=', 1);
 
      return redirect()->route('books')->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
-        => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books]);
+        => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators]);
  }else{
      Session::flash('message', 'Tạo sách thất bại!');
      Session::flash('alert-class', 'alert-danger');
@@ -139,9 +151,11 @@ public function edit($id)
     $authors = Authors::select('id', 'name')->get();
     $publishers = publishers::select('id', 'name')->get();
     $status_books = status_books::select('id', 'name')->get();
-
+    $themes = themes::select('id', 'name')->get();
+    $sites = sites::select('id', 'name')->get();
+    $translators = Authors::select('id', 'name')->where('is_translator', '=', 1);
     return view('books.edit', )->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
-        => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'books'=> $books]);
+        => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'books'=> $books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators]);
 }
 
     /**
