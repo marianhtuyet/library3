@@ -35,7 +35,7 @@ class BookController extends Controller
      ->join('status_books', 'status_books.id', '=', 'books.status_id')
      ->select( 'authors.name as author_name', 'tpddcs.ddc_name', 'language_books.name as language_name', 'publishers.name as publishers_name', 'status_books.name as status_name', 'books.*')
 
-     ->orderBy('name', 'DESC')->get();
+     ->orderBy('name', 'ASC')->get();
      $authors = Authors::select('id', 'name')->get();
      return view('books.index')->with(['books' => $books, 'authors' => $authors]);
 
@@ -112,7 +112,6 @@ class BookController extends Controller
         $reImage = time().'.'.$image->getClientOriginalExtension();
         $dest = public_path('assets/img/');
         $image->move($dest, $reImage);
-
     }
 
 
@@ -127,7 +126,7 @@ class BookController extends Controller
      $status_books = status_books::select('id', 'name')->get();
      $themes = themes::select('id', 'name')->get();
      $sites = sites::select('id', 'name')->get();
-     $translators = Authors::select('id', 'name')->where('is_translator', '=', 1);
+     $translators = Authors::select('id', 'name')->where('is_translator', '=', 1)->get();
 
      return redirect()->route('books')->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
         => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators]);
@@ -153,7 +152,7 @@ public function edit($id)
     $status_books = status_books::select('id', 'name')->get();
     $themes = themes::select('id', 'name')->get();
     $sites = sites::select('id', 'name')->get();
-    $translators = Authors::select('id', 'name')->where('is_translator', '=', 1);
+    $translators = Authors::select('id', 'name')->where('is_translator', '=', 1)->get();
     return view('books.edit', )->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
         => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'books'=> $books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators]);
 }

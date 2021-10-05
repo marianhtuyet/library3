@@ -26,7 +26,6 @@ class Book extends Model
         'theme_id',
         'summary',
         'language_id',
-        'isbn_issn',
         'input_date',
         'type_book_id',
         'cost',
