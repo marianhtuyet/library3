@@ -34,7 +34,7 @@
                 <form action="{{route('books.update',[$books->id])}}" enctype="multipart/form-data" method="post" >
                     {{csrf_field()}}
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Image <span class="required">*</span>
                         </label>
 
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -57,10 +57,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="subtitle">Phụ đề <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="subtitle">Phụ đề 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="subtitle" class="form-control col-md-12 col-xs-12" name="subtitle" placeholder="Nhập phụ đề" required="required" type="text" value="{{$books->subtitle}}">
+                            <input id="subtitle" class="form-control col-md-12 col-xs-12" name="subtitle" placeholder="Nhập phụ đề" type="text" value="{{$books->subtitle}}">
 
                             @if ($errors->has('subtitle'))
                             <span class="errormsg">{{ $errors->first('subtitle') }}</span>
@@ -70,7 +70,7 @@
                     
 
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="original">Nguyên tác <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="original">Nguyên tác 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input id="original" class="form-control col-md-12 col-xs-12" name="original" placeholder="Enter book name"  type="text" value="{{$books->original}}">
@@ -85,7 +85,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="author_id">Tác giả <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                           <select class="selectpicker" multiple id="select_multi_author" name="author_ids[]" data-live-search="true" style="display: block;" onchange="refresh_list(this)">
+                           <select class="selectpicker" multiple id="select_multi_author" name="author_ids[]" required="required" data-live-search="true" style="display: block;" onchange="refresh_list(this)">
                               @foreach ($authors as $author)
                               <option  <?php echo( in_array($author->id, json_decode($books->author_ids))  ? 'selected': '')?> value="{{ $author->id }}">{{ $author->name }}</option>       
                               @endforeach
@@ -106,7 +106,7 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="symbol_author">Ký hiệu tác giả<span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="symbol_author" class="form-control col-md-12 col-xs-12" name="symbol_author" placeholder="Ký hiệu tác giả"  value="{{$books->symbol_author}}" type="text">
+                    <input id="symbol_author" class="form-control col-md-12 col-xs-12" name="symbol_author" placeholder="Ký hiệu tác giả"  value="{{$books->symbol_author}}" type="text" required="required">
 
                     @if ($errors->has('symbol_author'))
                     <span class="errormsg">{{ $errors->first('symbol_author')}}</span>
@@ -116,12 +116,12 @@
 
 
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="author_id">Dịch giả <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="author_id">Dịch giả 
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                    <select class="selectpicker" multiple id="select_multi_translator" name="translator_ids[]" data-live-search="true">
                       @foreach ($translators as $translator)
-                      <option  <?php echo( in_array($translator->id, json_decode($books->translator_ids))  ? 'selected': '')?> value="{{ $translator->id }}">{{ $translator->name }}</option>       
+                      <option  <?php if($books->translator_ids){ echo( in_array($translator->id, json_decode($books->translator_ids))  ? 'selected': '');}?> value="{{ $translator->id }}">{{ $translator->name }}</option>       
                       @endforeach
                   </select>
                   <script type="text/javascript">
@@ -190,9 +190,9 @@
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ddc_id">DDC <span class="required">*</span>
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-       <select class="form-control " name="ddc_id">
+       <select class="form-control " name="ddc_id" required="required">
         @foreach($tpddcs as $tpddc)
-        <option value="{{ $tpddc->id }}" <?php echo( $tpddc->id == $books->ddc_id ? 'selected': '')?>>{{ $tpddc->ddc_name }}</option>
+        <option value="{{ $tpddc->id }}" <?php echo( $tpddc->id == $books->ddc_id ? 'selected': '')?>> {{ number_format($tpddc->ddc, 6) }} - {{ $tpddc->ddc_name }}</option>
         @endforeach
     </select>
 
@@ -200,7 +200,7 @@
 </div>
 
 <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="theme_id">Chủ đề <span class="required">*</span>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="theme_id">Chủ đề
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
        <select class="form-control " name="theme_id">
@@ -223,13 +223,19 @@
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="language_id">Ngôn ngữ <span class="required">*</span>
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-       <select class="form-control " name="language_id">
+       <select class="form-control " name="language_id" required="required">
         @foreach($language_books as $language_book)
         <option value="{{ $language_book->id }}" <?php echo( $language_book->id == $books->language_id ? 'selected': '')?>>{{ $language_book->name }}</option>
         @endforeach
     </select>
 
 </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isbn_issn">ISBN - ISSN</label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+       <input id="isbn_issn" class="form-control col-md-12 col-xs-12" name="isbn_issn" placeholder="ISBN" value="{{$books->isbn_issn}}" type="text" />
+   </div>
 </div>
 
 <div class="form-group">
@@ -244,16 +250,13 @@
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="type_book_id">Loại sách <span class="required">*</span>
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-       <select class="form-control " name="type_book_id">
+       <select class="form-control " name="type_book_id" required="required">
         @foreach($type_books as $type_book)
         <option value="{{ $type_book->id }}" <?php echo( $type_book->id == $books->type_book_id ? 'selected': '')?>>{{ $type_book->name }}</option>
         @endforeach
     </select>
 </div>
 </div>
-
-
-
 <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cost">Giá</label>
     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -265,7 +268,7 @@
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="site_id">Kho <span class="required">*</span>
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-       <select class="form-control " name="site_id">
+       <select class="form-control" name="site_id" required="required">
         @foreach($sites as $site)
         <option value="{{ $site->id }}" <?php echo( $site->id == $books->site_id ? 'selected': '')?>>{{ $site->name }}</option>
         @endforeach
@@ -284,14 +287,23 @@
 <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="status_id">Trạng thái </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-        <select class="form-control " name="status_id">
+        <select class="form-control " name="status_id" required="required">
             @foreach($status_books as $status_book)
             <option value="{{ $status_book->id }}"  <?php echo( $status_book->id == $books->status_id ? 'selected': '')?>>{{ $status_book->name }}</option>
             @endforeach
         </select>
     </div>
 </div>
-
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="quality_id">Sách bộ </label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <select class="form-control " name="quality_id" required>
+            @foreach($quality_books as $quality_book)
+            <option value="{{ $quality_book->id }}"  <?php echo( $status_book->id == $books->status_id ? 'selected': '')?> >{{ $quality_book->name }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
 <div class="form-group">
     <div class="col-md-6">
 

@@ -12,6 +12,6 @@ class tpddcs extends Model
 
     protected $table = 'tpddcs';
     protected $fillable = [
-      'ddc_name','ddc' 
+      'ddc_name','ddc_number' 
    ];
 }

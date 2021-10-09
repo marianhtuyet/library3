@@ -15,7 +15,8 @@ use App\Models\publishers;
 use App\Models\status_books;
 use App\Models\themes;
 use App\Models\sites;
-
+use App\Models\translators;
+use App\Models\quality_books;
 
 
 class BookController extends Controller
@@ -36,7 +37,7 @@ class BookController extends Controller
      ->select( 'authors.name as author_name', 'tpddcs.ddc_name', 'language_books.name as language_name', 'publishers.name as publishers_name', 'status_books.name as status_name', 'books.*')
 
      ->orderBy('name', 'ASC')->get();
-     $authors = Authors::select('id', 'name')->get();
+     $authors = translators::select('id', 'name')->get();
      return view('books.index')->with(['books' => $books, 'authors' => $authors]);
 
  }
@@ -56,9 +57,10 @@ class BookController extends Controller
         $status_books = status_books::select('id', 'name')->get();
         $themes = themes::select('id', 'name')->get();
         $sites = sites::select('id', 'name')->get();
-        $translators = Authors::select('id', 'name')->where('is_translator', '=', 1)->get();
+        $translators = translators::select('id', 'name')->get();
+        $quality_books = quality_books::select('id', 'name')->get();
         return view('books.create')->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
-            => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators]);
+            => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators, 'quality_books' => $quality_books]);
     }
     public function create(array $data, $reImage)
     {
@@ -80,6 +82,7 @@ class BookController extends Controller
            'theme_id'=>$data['theme_id'],
            'summary' => $data['summary'],
            'language_id' => $data['language_id'],
+           'isbn_issn' =>$data['isbn_issn'],
             'input_date' => $data['input_date'],
            'type_book_id' => $data['type_book_id'],
            'cost' => $data['cost'],
@@ -100,22 +103,26 @@ class BookController extends Controller
 
         $validator = Validator::make($request->all(), [
          'book_name' => 'required|string|min:3',
+        
      ]);
 
         if ($validator->fails()) {
          return redirect()->Back()->withInput()->withErrors($validator);
      }
+     // $dest = '/home/u246535017/domains/tvcongiao.com/public_html/assets/img/';
      $dest = public_path('assets/img/');
      $reImage = '';
      if($request->has('img_src')){
         $image = $request->img_src;
         $reImage = time().'.'.$image->getClientOriginalExtension();
         $dest = public_path('assets/img/');
+
         $image->move($dest, $reImage);
     }
 
+    
 
-    if($record = $this->create($request->except('img_src'), $dest.$reImage)){
+    if($record = $this->create($request->except('img_src'), 'assets/img/'.$reImage)){
      Session::flash('message', 'Tạo sách thành công!');
      Session::flash('alert-class', 'alert-success');
      $type_books = type_books::select('id', 'name')->get();
@@ -126,10 +133,10 @@ class BookController extends Controller
      $status_books = status_books::select('id', 'name')->get();
      $themes = themes::select('id', 'name')->get();
      $sites = sites::select('id', 'name')->get();
-     $translators = Authors::select('id', 'name')->where('is_translator', '=', 1)->get();
-
+     $translators = translators::select('id', 'name')->get();
+     $quality_books = quality_books::select('id', 'name')->get();
      return redirect()->route('books')->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
-        => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators]);
+        => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators, 'quality_books' => $quality_books]);
  }else{
      Session::flash('message', 'Tạo sách thất bại!');
      Session::flash('alert-class', 'alert-danger');
@@ -152,18 +159,13 @@ public function edit($id)
     $status_books = status_books::select('id', 'name')->get();
     $themes = themes::select('id', 'name')->get();
     $sites = sites::select('id', 'name')->get();
-    $translators = Authors::select('id', 'name')->where('is_translator', '=', 1)->get();
+    $translators = translators::select('id', 'name')->get();
+    $quality_books = quality_books::select('id', 'name')->get();
     return view('books.edit', )->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
-        => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'books'=> $books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators]);
+        => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'books'=> $books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators, 'quality_books' => $quality_books]);
 }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request,$id)
     {
 
@@ -184,11 +186,8 @@ public function edit($id)
         $reImage = time().'.'.$image->getClientOriginalExtension();
         $dest = public_path('assets/img/');
         $image->move($dest, $reImage);
-
         $data = array_merge($data, ['img_src' =>'/assets/img/'.$reImage]);
-
     }
-
 
     if($books->update($data)){
      Session::flash('message', 'Cập nhật sách thành công!');

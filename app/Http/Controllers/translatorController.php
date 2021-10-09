@@ -3,32 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\quality_books;
+
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use App\Models\translators;
 
-class qualityBooksController extends Controller
+class translatorController extends Controller
 {
-    public function index(){
-      $quality_books = quality_books::select('id','name')
+   public function index(){
+      $translators = translators::select('id','name')
       ->orderBy('name', 'ASC')->get();
-      return view('quality_books.index')->with('quality_books',$quality_books);
+      return view('translators.index')->with('translators',$translators);
    }
 
    public function add(){
-      return view('quality_books.create');
+      return view('translators.create');
    }
 
    protected function create(array $data)
    {
-      return quality_books::create([
+      return translators::create([
          'name' => $data['name'],
       ]);
    }
 
    public function store(Request $request){
       $validator = Validator::make($request->all(), [
-         'name' => 'required|string',
+         'name' => 'required|string|min:3',
       ]);
 
       if ($validator->fails()) {
@@ -36,11 +37,11 @@ class qualityBooksController extends Controller
       }
       
       if($record = $this->create($request->all())){
-         Session::flash('message', 'Tạo trạng thái sách thành công!');
+         Session::flash('message', 'Tạo dịch giả thành công!');
          Session::flash('alert-class', 'alert-success');
-         return redirect()->route('quality_books');
+         return redirect()->route('translators');
       }else{
-         Session::flash('message', 'Tạo trạng thái sách thất bại!');
+         Session::flash('message', 'Cập nhật dịch giả thất bại!');
          Session::flash('alert-class', 'alert-danger');
       }
 
@@ -48,9 +49,9 @@ class qualityBooksController extends Controller
    }
 
    public function edit($id){
-      $quality_books = quality_books::find($id);
+      $translators = translators::find($id);
 
-      return view('quality_books.edit', )->with('quality_books',$quality_books);
+      return view('translators.edit', )->with('translators',$translators);
    }
 
 
@@ -58,20 +59,20 @@ class qualityBooksController extends Controller
       $data = $request->except('_method','_token','submit');
 
       $validator = Validator::make($request->all(), [
-         'name' => 'required|string',
+         'name' => 'required|string|min:3',
       ]);
 
       if ($validator->fails()) {
          return redirect()->Back()->withInput()->withErrors($validator);
       }
-      $quality_books = quality_books::find($id);
+      $translators = translators::find($id);
       
-      if($quality_books->update($data)){
-         Session::flash('message', 'Cập nhật trạng thái sách thành công!');
+      if($translators->update($data)){
+         Session::flash('message', 'Cập nhật dịch giả thành công!');
          Session::flash('alert-class', 'alert-success');
-         return redirect()->route('quality_books');
+         return redirect()->route('translators');
       }else{
-         Session::flash('message', 'Cập nhật trạng thái sách thất bại!');
+         Session::flash('message', 'Cập nhật dịch giả thất bại!');
          Session::flash('alert-class', 'alert-danger');
       }
 
@@ -80,9 +81,9 @@ class qualityBooksController extends Controller
 
       // Delete
    public function destroy($id){
-      quality_books::destroy($id);
+      translators::destroy($id);
       Session::flash('message', 'Xóa thành công!');
       Session::flash('alert-class', 'alert-success');
-      return redirect()->route('quality_books');
+      return redirect()->route('translators');
    }
 }

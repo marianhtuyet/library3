@@ -7,7 +7,7 @@
     <div class="main">
         <div class="col-main">
             <div class="title">
-                <h3>Add DDC</h3>
+                <h3>Thêm dịch giả</h3>
             </div>
 
 
@@ -25,38 +25,24 @@
 
                     <div class="actionbutton">
 
-                        <a class='btn btn-info float-right' href="{{route('tpddcs')}}">List</a>
+                        <a class='btn btn-info float-right' href="{{route('translators')}}">List</a>
 
                     </div>
 
-                    <form action="{{route('tpddcs.store')}}" method="post" id="tpddcForm">
+                    <form action="{{route('translators.store')}}" method="post" id="translatorsForm">
                         {{csrf_field()}}
 
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ddc_name">Name <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="ddc_name" class="form-control col-md-12 col-xs-12" name="ddc_name" placeholder="Enter DDC name" required="required" type="text">
+                                <input id="name" class="form-control col-md-12 col-xs-12" name="name" placeholder="Enter status book name" required="required" type="text">
 
-                                @if ($errors->has('ddc_name'))
-                                <span class="errormsg">{{ $errors->first('ddc_name') }}</span>
+                                @if ($errors->has('name'))
+                                <span class="errormsg">{{ $errors->first('name') }}</span>
                                 @endif
                             </div>
                         </div>
-
-                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ddc_number">DDC <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="ddc_number" class="form-control col-md-12 col-xs-12" name="ddc_number" placeholder="Enter DDC " required="required" type="text">
-
-                                @if ($errors->has('ddc_number'))
-                                <span class="errormsg">{{ $errors->first('ddc_number') }}</span>
-                                @endif
-                            </div>
-                        </div>
-
-
 
                         <div class="form-group">
                             <div class="col-md-6">

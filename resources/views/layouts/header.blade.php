@@ -60,7 +60,10 @@
                 <li class="dropdown"><a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                       <li>
-                        <a href="{{route('author')}}">Tác giả, dịch giả</a>
+                        <a href="{{route('author')}}">Tác giả</a>
+                    </li>
+                    <li>
+                        <a href="{{route('translators')}}">Dịch giả</a>
                     </li>
                     <li>
                         <a href="{{route('language_books')}}">Ngôn ngữ</a>

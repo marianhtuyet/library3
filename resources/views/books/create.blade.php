@@ -40,7 +40,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="book_name">Name <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="book_name" class="form-control col-md-12 col-xs-12" name="book_name" placeholder="Enter book name" required="required" type="text">
+                                <input id="book_name" class="form-control col-md-12 col-xs-12" name="book_name" placeholder="Enter book name" required="required" type="text" required>
 
                                 @if ($errors->has('name'))
                                 <span class="errormsg">{{ $errors->first('name')}}</span>
@@ -48,10 +48,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="subtitle">Phụ đề <span class="required">*</span>
-                            </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="subtitle">Phụ đề </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="book_name" class="form-control col-md-12 col-xs-12" name="subtitle" placeholder="Nhập phụ đề" required="required" type="text">
+                                <input id="book_name" class="form-control col-md-12 col-xs-12" name="subtitle" placeholder="Nhập phụ đề"  type="text">
 
                                 @if ($errors->has('name'))
                                 <span class="errormsg">{{ $errors->first('name')}}</span>
@@ -59,8 +58,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="original">Nguyên tác <span class="required">*</span>
-                            </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="original">Nguyên tác </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="original" class="form-control col-md-12 col-xs-12" name="original" placeholder="Enter book name"  type="text">
 
@@ -72,8 +70,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="img_src">Image
-                                </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="img_src">Image</label>
                                 <input type="file" name="img_src" />
                                 @if ($errors->has('img_src'))
                                 <span class="errormsg">{{ $errors->first('img_src') }}</span>
@@ -84,9 +81,9 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="author_id">Tác giả <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="selectpicker" multiple id="select_multi_author" name="author_ids[]" data-live-search="true">
+                                <select class="selectpicker" multiple id="select_multi_author" name="author_ids[]" data-live-search="true" required >
                                   @foreach ($authors as $author)
-                                  <option @if(in_array($author->id, $authors->pluck('id')->toArray()))  @endif value="{{ $author->id }}">{{ $author->name }}</option>       
+                                  <option value="{{ $author->id }}">{{ $author->name }}</option>       
                                   @endforeach
                               </select>
                               <script type="text/javascript">
@@ -99,7 +96,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="symbol_author">Ký hiệu tác giả <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="symbol_author" class="form-control col-md-12 col-xs-12" name="symbol_author" placeholder="Nhập ký hiệu tác giả"  type="text"/>
+                            <input id="symbol_author" class="form-control col-md-12 col-xs-12" name="symbol_author" placeholder="Nhập ký hiệu tác giả"  type="text" required />
 
                             @if ($errors->has('symbol_author'))
                             <span class="errormsg">{{ $errors->first('symbol_author')}}</span>
@@ -107,8 +104,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="translator_ids">Dịch giả <span class="required">*</span>
-                        </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="translator_ids">Dịch giả </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select class="selectpicker" multiple id="select_multi_translator" name="translator_ids[]" data-live-search="true">
                               @foreach ($translators as $translator)
@@ -117,9 +113,6 @@
                           </select>
                           <script type="text/javascript">
                             jQuery(document).ready(function(){
-                                // jQuery('#select_multi_author').selectpicker();
-                                  // jQuery('#select_multi_translator').selectpicker();
-
                               }); 
                             
                           </script>
@@ -158,8 +151,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="temporary_content">Kích thước <span class="required">*</span>
-                    </label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="temporary_content">Kích thước</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <input id="temporary_content" class="form-control col-md-12 col-xs-12" name="temporary_content" placeholder="Nhập kích thước"  type="text"/>
 
@@ -178,17 +170,16 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ddc_id">DDC <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                   <select class="form-control " name="ddc_id">
+                   <select class="form-control " name="ddc_id" required>
                     @foreach($tpddcs as $tpddc)
-                    <option value="{{ $tpddc->id }}">{{ $tpddc->ddc_name }}</option>
+                    <option value="{{ $tpddc->id }}"> {{ number_format($tpddc->ddc, 6) }} - {{ $tpddc->ddc_name }}</option>
                     @endforeach
                 </select>
 
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="theme_id">Chủ đề <span class="required">*</span>
-            </label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="theme_id">Chủ đề</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
              <select class="form-control " name="theme_id">
                 @foreach($themes as $theme)
@@ -208,7 +199,7 @@
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="language_id">Ngôn ngữ <span class="required">*</span>
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-     <select class="form-control " name="language_id">
+     <select class="form-control " name="language_id" required>
         @foreach($language_books as $language_book)
         <option value="{{ $language_book->id }}">{{ $language_book->name }}</option>
         @endforeach
@@ -220,7 +211,7 @@
 <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isbn_issn">ISBN - ISSN</label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-       <input id="isbn_issn" class="form-control col-md-12 col-xs-12" name="isbn_issn" placeholder="ISBN" value="632HC000_" type="text" disabled />
+       <input class="form-control col-md-12 col-xs-12" name="isbn_issn" placeholder="ISBN" type="text" />
    </div>
 </div>
 <div class="form-group">
@@ -234,7 +225,7 @@
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="type_book_id">Thể loại<span class="required">*</span>
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-     <select class="form-control " name="type_book_id">
+     <select class="form-control " name="type_book_id" required>
         @foreach($type_books as $type_book)
         <option value="{{ $type_book->id }}">{{ $type_book->name }}</option>
         @endforeach
@@ -250,33 +241,32 @@
     </div>
 </div>
 <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="site_id">Kho sách </label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="site_id">Kho sách <span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-        <select class="form-control " name="site_id">
+        <select class="form-control " name="site_id" required>
             @foreach($sites as $site)
             <option value="{{ $site->id }}">{{ $site->name }}</option>
             @endforeach
         </select>
     </div>
 </div>     
-<div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="input_date">Ngày nhập</label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-        <input id="input_date" class="form-control col-md-12 col-xs-12" name="input_date" placeholder="Ngày nhập"  type="date"/>
-    </div>
-</div>
-
-
-
-
-
 
 <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="status_id">Trạng thái </label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="status_id">Trạng thái <span class="required">*</span> </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-        <select class="form-control " name="status_id">
+        <select class="form-control " name="status_id" required>
             @foreach($status_books as $status_book)
             <option value="{{ $status_book->id }}">{{ $status_book->name }}</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="quality_id">Sách bộ </label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <select class="form-control " name="quality_id" required>
+            @foreach($quality_books as $quality_book)
+            <option value="{{ $quality_book->id }}">{{ $quality_book->name }}</option>
             @endforeach
         </select>
     </div>

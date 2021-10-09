@@ -18,8 +18,8 @@ class tpddcController extends Controller
     public function index()
     {
       
-        $tpddcs = tpddcs::select('id','ddc_name','ddc')
-        ->orderBy('tpddcs.ddc', 'ASC')
+        $tpddcs = tpddcs::select('id','ddc_name','ddc_number')
+        ->orderBy('tpddcs.ddc_number', 'ASC')
         ->get();
         return view('tpddcs.index')->with('tpddcs',$tpddcs);
     }
@@ -29,7 +29,7 @@ class tpddcController extends Controller
         ->join('books', 'books.ddc_id', '=', 'tpddcs.id')
         ->join('author_books', 'author_books.book_id', '=', 'books.id')
         ->join('authors', 'authors.id', '=', 'author_books.author_id')
-        ->where([['tpddcs.ddc','>', 0], ['tpddcs.ddc', '<=', 100]])
+        ->where([['tpddcs.ddc_number','>', '0'], ['tpddcs.ddc_number', '<=', '100']])
         ->select( 'authors.name as author_name', 'books.*')
         ->orderBy('tpddcs.ddc', 'ASC')
         ->get();
@@ -42,7 +42,7 @@ class tpddcController extends Controller
         ->join('books', 'books.ddc_id', '=', 'tpddcs.id')
         ->join('author_books', 'author_books.book_id', '=', 'books.id')
         ->join('authors', 'authors.id', '=', 'author_books.author_id')
-        ->where([['tpddcs.ddc','>', 100], ['tpddcs.ddc', '<=', 200]])
+        ->where([['tpddcs.ddc_number','>', '100'], ['tpddcs.ddc_number', '<=', '200']])
         ->select( 'authors.name as author_name', 'books.*')
         ->orderBy('tpddcs.ddc', 'ASC')
         ->get();
@@ -55,7 +55,7 @@ class tpddcController extends Controller
         ->join('books', 'books.ddc_id', '=', 'tpddcs.id')
         ->join('author_books', 'author_books.book_id', '=', 'books.id')
         ->join('authors', 'authors.id', '=', 'author_books.author_id')
-        ->where([['tpddcs.ddc','>', 200], ['tpddcs.ddc', '<=', 300]])
+        ->where([['tpddcs.ddc_number','>', '200'], ['tpddcs.ddc_number', '<=', '300']])
         ->select( 'authors.name as author_name', 'books.*')
         ->orderBy('tpddcs.ddc', 'ASC')
         ->get();
@@ -68,7 +68,7 @@ class tpddcController extends Controller
         ->join('books', 'books.ddc_id', '=', 'tpddcs.id')
         ->join('author_books', 'author_books.book_id', '=', 'books.id')
         ->join('authors', 'authors.id', '=', 'author_books.author_id')
-        ->where([['tpddcs.ddc','>', 300], ['tpddcs.ddc', '<=', 400]])
+        ->where([['tpddcs.ddc_number','>', '300'], ['tpddcs.ddc_number', '<=', '400']])
         ->select( 'authors.name as author_name', 'books.*')
         ->orderBy('tpddcs.ddc', 'ASC')
         ->get();
@@ -81,7 +81,7 @@ class tpddcController extends Controller
         ->join('books', 'books.ddc_id', '=', 'tpddcs.id')
         ->join('author_books', 'author_books.book_id', '=', 'books.id')
         ->join('authors', 'authors.id', '=', 'author_books.author_id')
-        ->where([['tpddcs.ddc','>', 400], ['tpddcs.ddc', '<=', 500]])
+        ->where([['tpddcs.ddc_number','>', '400'], ['tpddcs.ddc_number', '<=', '500']])
         ->select( 'authors.name as author_name', 'books.*')
         ->orderBy('tpddcs.ddc', 'ASC')
         ->get();
@@ -103,7 +103,7 @@ class tpddcController extends Controller
    {
       return tpddcs::create([
          'ddc_name' => $data['ddc_name'],
-         'ddc' => $data['ddc'],
+         'ddc_number' => $data['ddc_number'],
       ]);
    }
 
@@ -111,7 +111,7 @@ class tpddcController extends Controller
 
       $validator = Validator::make($request->all(), [
          'ddc_name' => 'required|string|min:1',
-         'ddc' => 'numeric',
+         'ddc_number' => 'required|string',
       ]);
 
       if ($validator->fails()) {
@@ -142,7 +142,7 @@ class tpddcController extends Controller
 
       $validator = Validator::make($request->all(), [
          'ddc_name' => 'required|string|min:3',
-         'ddc' => 'numeric',
+         'ddc_number' => 'required|string',
       ]);
 
       if ($validator->fails()) {

@@ -47,15 +47,18 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ddc_number">DDC <span class="required">*</span>
+                            </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ddc">DDC</label>
-                                <input type="number" name="ddc" step="0.0000001" value="{{old('ddc',$tpddc->ddc)}}">
-                                @if ($errors->has('ddc'))
-                                <span class="errormsg">{{ $errors->first('ddc') }}</span>
+                                <input id="ddc_number" class="form-control col-md-12 col-xs-12" name="ddc_number" placeholder="Enter DDC number" required="required" type="text" value="{{old('ddc_number',$tpddc->ddc_number)}}">
+
+                                @if ($errors->has('ddc_number'))
+                                <span class="errormsg">{{ $errors->first('ddc_number') }}</span>
                                 @endif
                             </div>
                         </div>
-                    
+
+                       
 
                 <div class="form-group">
                     <div class="col-md-6">

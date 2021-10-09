@@ -219,3 +219,18 @@ Route::put('reset-password/{token}', 'ResetPasswordController@reset')->name('res
 
     ## Delete
     Route::get('/quality_books/delete/{id}', 'qualityBooksController@destroy')->name('quality_books.delete');
+
+//Translator
+    ## View 
+    Route::get('/translators', 'translatorController@index')->name('translators');
+
+    ## Create
+    Route::get('/translators/create', 'translatorController@add')->name('translators.create');
+    Route::post('/translators/store', 'translatorController@store')->name('translators.store');
+    
+    ## Update
+    Route::get('/translators/store/{id}', 'translatorController@edit')->name('translators.edit');
+    Route::post('/translators/update/{id}', 'translatorController@update')->name('translators.update');
+
+    ## Delete
+    Route::get('/translators/delete/{id}', 'translatorController@destroy')->name('translators.delete');

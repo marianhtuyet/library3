@@ -3014,3 +3014,7 @@ section {
   font-size: 13px;
   color: #fff;
 }
+
+.required{
+    color: red;
+}
