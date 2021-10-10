@@ -172,7 +172,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                    <select class="form-control " name="ddc_id" required>
                     @foreach($tpddcs as $tpddc)
-                    <option value="{{ $tpddc->id }}"> {{ number_format($tpddc->ddc, 6) }} - {{ $tpddc->ddc_name }}</option>
+                    <option value="{{ $tpddc->id }}"> {{ $tpddc->ddc_number }} - {{ $tpddc->ddc_name }}</option>
                     @endforeach
                 </select>
 

@@ -192,7 +192,7 @@
     <div class="col-md-6 col-sm-6 col-xs-12">
        <select class="form-control " name="ddc_id" required="required">
         @foreach($tpddcs as $tpddc)
-        <option value="{{ $tpddc->id }}" <?php echo( $tpddc->id == $books->ddc_id ? 'selected': '')?>> {{ number_format($tpddc->ddc, 6) }} - {{ $tpddc->ddc_name }}</option>
+        <option value="{{ $tpddc->id }}" <?php echo( $tpddc->id == $books->ddc_id ? 'selected': '')?>> {{ $tpddc->ddc_number }} - {{ $tpddc->ddc_name }}</option>
         @endforeach
     </select>
 

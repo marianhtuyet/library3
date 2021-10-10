@@ -128,7 +128,7 @@ class BookController extends Controller
      Session::flash('alert-class', 'alert-success');
      $type_books = type_books::select('id', 'name')->orderBy('name', 'ASC')->get();
      $language_books = language_books::select('id', 'name')->orderBy('name', 'ASC')->get();
-     $tpddcs = tpddcs::select('ddc_number', 'ddc_name')->orderBy('name', 'ASC')->get();
+     $tpddcs = tpddcs::select('ddc_number', 'ddc_name')->orderBy('ddc_number', 'ASC')->get();
      $authors = Authors::select('id', 'name')->orderBy('name', 'ASC')->get();
      $publishers = publishers::select('id', 'name')->orderBy('name', 'ASC')->get();
      $status_books = status_books::select('id', 'name')->orderBy('name', 'ASC')->get();
