@@ -49,16 +49,16 @@ class BookController extends Controller
      */
     protected function add()
     {
-        $type_books = type_books::select('id', 'name')->get();
-        $language_books = language_books::select('id', 'name')->get();
-        $tpddcs = tpddcs::select('id', 'ddc', 'ddc_name')->get();
-        $authors = Authors::select('id', 'name')->get();
-        $publishers = publishers::select('id', 'name')->get();
-        $status_books = status_books::select('id', 'name')->get();
-        $themes = themes::select('id', 'name')->get();
-        $sites = sites::select('id', 'name')->get();
-        $translators = translators::select('id', 'name')->get();
-        $quality_books = quality_books::select('id', 'name')->get();
+        $type_books = type_books::select('id', 'name')->orderBy('name', 'ASC')->get();
+        $language_books = language_books::select('id', 'name')->orderBy('name', 'ASC')->get();
+        $tpddcs = tpddcs::select('id', 'ddc_number', 'ddc_name')->orderBy('ddc_number', 'ASC')->get();
+        $authors = Authors::select('id', 'name')->orderBy('name', 'ASC')->get();
+        $publishers = publishers::select('id', 'name')->orderBy('name', 'ASC')->get();
+        $status_books = status_books::select('id', 'name')->orderBy('name', 'ASC')->get();
+        $themes = themes::select('id', 'name')->orderBy('name', 'ASC')->get();
+        $sites = sites::select('id', 'name')->orderBy('name', 'ASC')->get();
+        $translators = translators::select('id', 'name')->orderBy('name', 'ASC')->get();
+        $quality_books = quality_books::select('id', 'name')->orderBy('name', 'ASC')->get();
         return view('books.create')->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
             => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators, 'quality_books' => $quality_books]);
     }
@@ -115,6 +115,7 @@ class BookController extends Controller
      if($request->has('img_src')){
         $image = $request->img_src;
         $reImage = time().'.'.$image->getClientOriginalExtension();
+        // $dest = '/home/u246535017/domains/tvcongiao.com/public_html/assets/img/';
         $dest = public_path('assets/img/');
 
         $image->move($dest, $reImage);
@@ -125,18 +126,17 @@ class BookController extends Controller
     if($record = $this->create($request->except('img_src'), 'assets/img/'.$reImage)){
      Session::flash('message', 'Tạo sách thành công!');
      Session::flash('alert-class', 'alert-success');
-     $type_books = type_books::select('id', 'name')->get();
-     $language_books = language_books::select('id', 'name')->get();
-     $tpddcs = tpddcs::select('ddc', 'ddc_name')->get();
-     $authors = Authors::select('id', 'name')->get();
-     $publishers = publishers::select('id', 'name')->get();
-     $status_books = status_books::select('id', 'name')->get();
-     $themes = themes::select('id', 'name')->get();
-     $sites = sites::select('id', 'name')->get();
-     $translators = translators::select('id', 'name')->get();
-     $quality_books = quality_books::select('id', 'name')->get();
-     return redirect()->route('books')->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
-        => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators, 'quality_books' => $quality_books]);
+     $type_books = type_books::select('id', 'name')->orderBy('name', 'ASC')->get();
+     $language_books = language_books::select('id', 'name')->orderBy('name', 'ASC')->get();
+     $tpddcs = tpddcs::select('ddc_number', 'ddc_name')->orderBy('name', 'ASC')->get();
+     $authors = Authors::select('id', 'name')->orderBy('name', 'ASC')->get();
+     $publishers = publishers::select('id', 'name')->orderBy('name', 'ASC')->get();
+     $status_books = status_books::select('id', 'name')->orderBy('name', 'ASC')->get();
+     $themes = themes::select('id', 'name')->orderBy('name', 'ASC')->get();
+     $sites = sites::select('id', 'name')->orderBy('name', 'ASC')->get();
+     $translators = translators::select('id', 'name')->orderBy('name', 'ASC')->get();
+     $quality_books = quality_books::select('id', 'name')->orderBy('name', 'ASC')->get();
+     return redirect()->route('books')->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'=> $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators, 'quality_books' => $quality_books]);
  }else{
      Session::flash('message', 'Tạo sách thất bại!');
      Session::flash('alert-class', 'alert-danger');
@@ -151,16 +151,16 @@ public function edit($id)
 
     $books = Book::find($id);
 
-    $type_books = type_books::select('id', 'name')->get();
-    $language_books = language_books::select('id', 'name')->get();
-    $tpddcs = tpddcs::select('id', 'ddc', 'ddc_name')->get();
-    $authors = Authors::select('id', 'name')->get();
-    $publishers = publishers::select('id', 'name')->get();
-    $status_books = status_books::select('id', 'name')->get();
-    $themes = themes::select('id', 'name')->get();
-    $sites = sites::select('id', 'name')->get();
-    $translators = translators::select('id', 'name')->get();
-    $quality_books = quality_books::select('id', 'name')->get();
+    $type_books = type_books::select('id', 'name')->orderBy('name', 'ASC')->get();
+    $language_books = language_books::select('id', 'name')->orderBy('name', 'ASC')->get();
+    $tpddcs = tpddcs::select('id', 'ddc_number', 'ddc_name')->orderBy('ddc_number', 'ASC')->get();
+    $authors = Authors::select('id', 'name')->orderBy('name', 'ASC')->get();
+    $publishers = publishers::select('id', 'name')->orderBy('name', 'ASC')->get();
+    $status_books = status_books::select('id', 'name')->orderBy('name', 'ASC')->get();
+    $themes = themes::select('id', 'name')->orderBy('name', 'ASC')->get();
+    $sites = sites::select('id', 'name')->orderBy('name', 'ASC')->get();
+    $translators = translators::select('id', 'name')->orderBy('name', 'ASC')->get();
+    $quality_books = quality_books::select('id', 'name')->orderBy('name', 'ASC')->get();
     return view('books.edit', )->with(['type_books'=>$type_books, 'language_books'=> $language_books, 'tpddcs'=> $tpddcs, 'authors'
         => $authors, 'publishers'=>$publishers, 'status_books'=>$status_books, 'books'=> $books, 'themes'=>$themes, 'sites'=>$sites, 'translators'=>$translators, 'quality_books' => $quality_books]);
 }
@@ -184,6 +184,7 @@ public function edit($id)
      if($request->has('img_src')){
         $image = $request->img_src;
         $reImage = time().'.'.$image->getClientOriginalExtension();
+        // $dest = '/home/u246535017/domains/tvcongiao.com/public_html/assets/img/';
         $dest = public_path('assets/img/');
         $image->move($dest, $reImage);
         $data = array_merge($data, ['img_src' =>'/assets/img/'.$reImage]);
@@ -232,3 +233,4 @@ public function edit($id)
 }
 
 
+    
